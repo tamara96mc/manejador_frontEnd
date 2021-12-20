@@ -1,0 +1,82 @@
+.jiras{
+
+    width: 90vw;
+    height: 100vh;
+    background-color: $colAzul;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.jiras-btn{
+
+    width: 95%;
+    height: 10%;
+    margin: 0.5em;
+
+}
+
+    
+.jiras-info{
+    
+    width: 95%;
+    height: 50%;
+    margin: 0.5em;
+
+}
+
+
+.jiras-proyectos{
+
+    width: 95%;
+    height: 20%;
+    margin: 0.5em;
+
+}
+
+
+.jiras-campos{
+
+    width: 95%;
+    height: 20%;
+    margin: 0.5em;
+
+}
+
+
+hr{
+
+    // width:100%;
+    // background-color: $colBlanco1;
+    // padding: 0.4em;
+}
+  
+
+.container {
+    width: 90%;
+    padding: 1em;
+    font-size: 12px;
+    background-color: $colAzul;
+    margin: 1em auto 1em auto;
+  }
+
+
+  .border{
+    margin: 2em 1em 2em 1em;
+    border: 0.1em solid $colBlanco1;
+  }
+  
+  /* Floating column for labels: 25% width */
+  .col-50 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-100 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }

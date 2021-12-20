@@ -1,0 +1,22 @@
+
+@import 'scss/main.scss';
+
+@import 'components/Button/Button.scss';
+@import 'components/Jira_info/Jira_info.scss';
+@import 'components/Jira_proyectos/Jira_proyectos.scss';
+@import 'components/Pagination/Pagination.scss';
+@import 'components/DropdownM/DropdownM.scss';
+@import 'components/DropdownJ/DropdownJ.scss';
+@import 'components/Header/Header.scss';
+@import 'containers/Jiras/Jiras.scss';
+@import 'containers/Login/Login.scss';
+
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background-color: #f4fafa;
+}
+

@@ -1,0 +1,21 @@
+.Mnav-select {
+
+    height: 2.5em;
+    width: 8em;
+    border: 0 solid;
+    text-align: center;
+    transition: 0.4s;
+    background-color:#4e4e4e;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 0.05em solid black;
+    border-radius: 0.3em;
+    
+}
+
+
+.Mnav-select:hover{
+    transition: 0.4s;
+    background-color: #ff6373;
+    cursor: pointer;
+}
