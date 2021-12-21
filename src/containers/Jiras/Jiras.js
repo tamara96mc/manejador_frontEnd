@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import DropdownJ from '../../components/DropdownJ/DropdownJ';
 import Jira_info from '../../components/Jira_info/Jira_info';
-import Jira_proyectos from '../../components/Jira_proyectos/Jira_proyectos';
+import CodigoQR from '../../components/CodigoQR/CodigoQR';
+
 
 const Jiras = (props) => {
 
@@ -24,7 +24,7 @@ const Jiras = (props) => {
             </div>
             <div className="row border ">
                 <div className="col-100">
-                    <Jira_proyectos />
+                  <CodigoQR/>
                 </div>
             </div>
 
