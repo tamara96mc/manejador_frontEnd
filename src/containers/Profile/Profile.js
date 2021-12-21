@@ -44,43 +44,55 @@ const Profile = (props) => {
 
     
     return (
-        <div className="basics_column">
-        <div className="form">
-            <h3>Perfil</h3>
-            <div className="form-group">
-                <input
-                    name="name"
-                    type="text"
-                    placeholder="Nombre y apellidos"
-                    value={userData?.name || ''}
-                    onChange={handleChange}
-                />
+
+        <div  className="container-medium">
+        <form className='form-user'>
+          <h1 className='mb-1' >Datos usuario</h1>
+          <div  className="row">
+            <div  className="col-40">
+              <label >Nombre</label>
             </div>
-            <div className="form-group">
-                <input
-                    name="email"
+            <div  className="col-60">
+              <input  name="nombre"
+                    type="text"
+                    placeholder="Nombre del usuario"
+                    value={userData?.nombre || ''}
+                    onChange={handleChange}/>
+            </div>
+          </div>
+          <div  className="row">
+            <div  className="col-40">
+              <label >Email</label>
+            </div>
+            <div  className="col-60">
+              <input  name="email"
                     type="email"
                     placeholder="correo"
                     value={userData?.email || ''}
-                    onChange={handleChange}
-                />
+                    onChange={handleChange}/>
             </div>
-            <div className="form-group">
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="contraseña"
-                    value={'******' || ''}
-                    onChange={handleChange}
-                />
+          </div>
+  
+          <div  className="row">
+            <div  className="col-40">
+              <label >Contraseña</label>
             </div>
-            <div className="basics_row">
-            <div className="send-button" onClick={handleSubmit}>Actualizar</div>
-            <div className="out-button" onClick={logOut}>Cerrar sesión</div>
+            <div  className="col-60">
+            <input  name="contraseya"
+                    type="text"
+                    placeholder="Contraseña del usuario"
+                    value={userData?.contraseya || ''}
+                    onChange={handleChange}/>
             </div>
-           
-            </div>
-        </div>
+          </div>
+  
+  
+          <div  className="basics_row_space mt-2">
+          <div className="send-button" onClick={handleSubmit}>Actualizar</div>
+            <div className="send-button" onClick={logOut}>Cerrar sesión</div>
+          </div>
+        </form>
+      </div>
     )
 };
 

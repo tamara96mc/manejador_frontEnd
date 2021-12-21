@@ -1,13 +1,14 @@
 .nav-button {
 
-    height: 2.6em;
-    width: 5em;
+    height: 3em;
+    width: 6em;
+    font-size: medium;
     border: 0 solid;
     transition: 0.4s;
-    background-color:$colNegro3;
+    background-color:$colNegro4;
     color: $colBlanco1;
     cursor: pointer;
-    border: 0.05em solid $colNegro1;
+    border: 0.05em solid $colBlanco1;
     border-radius: 0.3em;
     
 }

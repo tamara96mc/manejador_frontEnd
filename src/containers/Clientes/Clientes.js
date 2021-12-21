@@ -53,7 +53,7 @@ const Jira_proyectos = () => {
             {currentTableData
                 ?
 
-                <div className="basics_column">
+                <div className="">
                      <input type="text" id="nombre" name="nombre" placeholder="Buscar cliente.." />
                     <ul className="list-group">
 
@@ -78,7 +78,7 @@ const Jira_proyectos = () => {
                         onPageChange={page => setCurrentPage(page)}
                     />
 
-                    <button className="nav-button" onClick={() => { }}>Crear</button>
+                    <button className="send-button btn-cliente" onClick={() => { }}>Crear</button>
                 </div>
                 :
                 <div className="img-load">

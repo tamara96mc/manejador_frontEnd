@@ -1,15 +1,16 @@
 $colRoj1 : rgb(187, 0, 14);
-$colRoj2 : rgb(227, 28, 37);
-$colRosa3 : rgb(228, 121, 121);
+$colRoj2 :  #ff6373;;
+$colRosa3 : rgb(182, 101, 101);
 
 $colAzul: #008080;
 
 
 $colNegro1 : black;
-$colNegro2 : rgb(44, 44, 43);
+$colNegro2 : rgb(29, 29, 28);
 $colNegro3 : #4e4e4e;
 $colNegro4 : rgb(148, 150, 148);
 $colBlanco1 : #f7f3f3;
+$colBlanco2 : rgb(255, 255, 255);
 
 .basics_column {
     display: flex;
@@ -37,7 +38,24 @@ $colBlanco1 : #f7f3f3;
     font-size: 12px;
     background-color: $colAzul;
     margin: 1em auto 1em auto;
+    color: $colBlanco2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .container-medium {
+    width: 50%;
+    padding: 1em;
+    font-size: 12px;
+    background-color: $colAzul;
+    margin: 1em auto 1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $colBlanco2;
   }
 
 //Disposal
@@ -72,24 +90,31 @@ $colBlanco1 : #f7f3f3;
 .mr-5{margin-right: 5em;}
 
 
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    height: 60%;
-    margin: 2em;
-    padding: 1em;
-    background-color: $colAzul;
+// .form{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 40%;
+//     height: 60%;
+//     margin: 2em;
+//     padding: 1em;
+//     background-color: $colAzul;
   
-    .form-group{
-        margin: 1em;
-    }
-    input{
-        width: 100%;
-        height: 2em;
-    }
+//     .form-group{
+//         margin: 1em;
+//     }
+//     input{
+//         width: 100%;
+//         height: 2em;
+//     }
+// }
+
+
+
+
+h1{
+    text-align: center;
 }
 
 h3{
@@ -99,22 +124,19 @@ h3{
 }
 
 .send-button{
-    height: 2.3em;
-    display: flex;
-    width: 70%;
+    height: 10%;
+    width: 40%;
     margin: 1em;
+    padding: 0.5em 0 0.5em 0 ;
     border-radius: 0.2em;
     transition: 0.4s;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     font-size: medium;
     background-color: $colNegro3;
     color: $colBlanco1;
-    font-weight: bold;
     font-size:large;
     border: 0.10em solid ;
+    text-align: center;
 }
 .send-button:hover {
     transition: 0.4s;
@@ -165,11 +187,11 @@ h3{
 .table-responsive {
     
     background-color:$colBlanco1;
-    margin-bottom: 5em;
+    font-size: medium;
 
     thead{
 
-        background-color: $colNegro1;
+        background-color: $colRosa3;
         color: $colBlanco1;
         padding: 2em;
     }
@@ -179,10 +201,16 @@ h3{
         color: $colBlanco1;
         padding: 2em;
     }
+    
 }
 
+td, th{
+    padding: 1em;
+    width: 10em;
+    text-align: center;
+}
 
-input[type=text], textarea, .tipo_jira{
+input , textarea{
    
     width: 100%;
     padding: 0.5em;
@@ -192,49 +220,96 @@ input[type=text], textarea, .tipo_jira{
 
   }
 
-  h1{
-      text-align: center;
-  }
   
   /* Style the label to display next to the inputs */
   label {
+    width: 15em;
     padding: 12px 12px 12px 0;
     display: inline-block;
     font-weight: bold;
     font-size: medium;
   }
   
-  
+  /* Floating column for inputs: 100% width */
+  .col-100 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }
+ /* Floating column for inputs: 75% width */
+    
+ .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+      }
+
+.col-60 {
+        float: left;
+        width: 60%;
+        margin-top: 6px;
+}
+
+
+  /* Floating column for inputs: 50% width */
+  .col-50 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+  }
+
+  .col-40 {
+    float: left;
+    width: 40%;
+    margin-top: 6px;
+  }
+
   /* Floating column for labels: 25% width */
   .col-25 {
     float: left;
     width: 25%;
     margin-top: 6px;
   }
-  
-  /* Floating column for inputs: 75% width */
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
 
-  .col-50 {
+  .col-10 {
     float: left;
-    width: 50%;
+    width: 10%;
     margin-top: 6px;
   }
-  
-  /* Floating column for inputs: 75% width */
-  .col-100 {
-    float: left;
-    width: 100%;
-    margin-top: 6px;
-  }
-  
+    
   /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .row{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  .form-user{
+
+    border: 0.1em solid $colBlanco1;
+    padding: 1em  3em 1em 3em ;
+    margin: 2em   ;
+
+}
+
+@media screen and (max-width: 600px) {
+    .row{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    label{
+        text-align: start;
+    }
   }

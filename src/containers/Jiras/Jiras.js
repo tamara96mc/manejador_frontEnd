@@ -18,7 +18,7 @@ const Jiras = (props) => {
             </div> */}
 
             <div className="row border">
-                <div className="col-100 basics_row_space">
+                <div className="col-100">
                     <Jira_info />
                 </div>
             </div>

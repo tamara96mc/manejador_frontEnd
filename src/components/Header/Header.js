@@ -15,21 +15,31 @@ const Header = (props) => {
 
     return (
         <div className='header'>
-        <img src={Logo} className="img-logo" />
- 
-        <div className="navigation">
+            <img src={Logo} className="img-logo" />
+
+            <div className="navigation">
                 <ul>
+                    {/*
                     <li>
                         <DropdownM />
                     </li>
-                    {/* <li>
+                    <li>
                         <DropdownJ />
                     </li> */}
                     <li>
-            
+                        <Button destino="Jira" url="/jiras" />
                     </li>
                     <li>
-            
+                        <Button destino="Clientes" url="/clientes" />
+                    </li>
+                    <li>
+                        <Button destino="Proyectos" url="/proyectos" />
+                    </li>
+                    <li>
+                        <Button destino="Campos" url="/campos" />
+                    </li>
+                    <li>
+
                     </li>
                     <li>
                         <Button destino="LogIn" url="/login" />
@@ -44,7 +54,7 @@ const Header = (props) => {
             </div>
             <div className="hamburger1" onClick={toggleHamburger}>
                 <Hamburger isOpen={hamburgerOpen} />
-        </div > 
+            </div >
             <style jsx>{`
 
         .header{

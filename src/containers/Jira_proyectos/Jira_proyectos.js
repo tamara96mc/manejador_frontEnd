@@ -48,13 +48,13 @@ const Jira_proyectos = () => {
   }, [currentPage]);
 
   return (
-    <div  className="container basics_column">
-            <h1>Proyectos</h1>
+    <div  className="container">
+            <h1>Proyectos de Jira</h1>
             {currentTableData
             ?
 
                 <div className="basics_column">
-                    <table className="table-responsive">
+                    <table className="table-responsive mt-1 mb-1">
                         <thead>
                             <tr>
                                 <th>Proyecto</th>
@@ -81,7 +81,7 @@ const Jira_proyectos = () => {
                         pageSize={PageSize}
                         onPageChange={page => setCurrentPage(page)}
                     />
-                      <button className="nav-button" onClick={() => { }}>Guardar</button>
+                      <button className="send-button btn-proyectos" onClick={() => { }}>Actualizar</button>
                 </div>
                 :
                 <div className="img-load">
