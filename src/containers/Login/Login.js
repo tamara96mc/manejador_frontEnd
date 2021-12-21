@@ -20,52 +20,60 @@ const Login = (props) => {
         //        // props.dispatch({type:LOGIN, payload:res.data});
         //         history("/");   
         //     }, 2000);
-     
+
         // } catch (error) {
         //     console.log(error);
         //     setmsgError(`El usuario no es correcto`);
         // }
     }
 
-    const { handleChange, handleSubmit, values, errors } = useForm(submit, validateLogin);    
+    const { handleChange, handleSubmit, values, errors } = useForm(submit, validateLogin);
 
 
 
     return (
 
-        <div className="basics_column">
+        <div className="container-medium">
+            <form className='form-user' >
+                <h1 className='mb-1'>Login</h1>
+                <div className="row">
+                    <div className="col-40">
+                        <label >Usuario</label>
+                    </div>
+                    <div className="col-60">
+                        <input
+                            className={`${errors.email && "inputError"}`}
+                            name="email"
+                            type="email"
+                            placeholder="email"
+                            value={values.email}
+                            onChange={handleChange}
+                        />
+                        {errors.email && <p className="error">{errors.email}</p>}
+                    </div>
+                </div>
 
-        <div className="form">
-
-            <h3>Iniciar sesión</h3>
-
-            <div className="form-group">
-                <input
-                    className={`${errors.email && "inputError"}`}
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                    value={values.email}
-                    onChange={handleChange}
-                />
-                {errors.email && <p className="error">{errors.email}</p>}
-            </div>
-
-            <div className="form-group">
-                <input
-                    className={`${errors.password && "inputError"}`}
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                    value={values.password}
-                    onChange={handleChange}
-                />
-                {errors.password && <p className="error">{errors.password}</p>}
-            </div>
-            <div className="info">{msgError}</div>
-            <div className="send-button" onClick={handleSubmit}>Login</div>
-
-        </div>
+                <div className="row">
+                    <div className="col-40">
+                        <label >Contraseña</label>
+                    </div>
+                    <div className="col-60">
+                        <input
+                            className={`${errors.password && "inputError"}`}
+                            name="password"
+                            type="password"
+                            placeholder="password"
+                            value={values.password}
+                            onChange={handleChange}
+                        />
+                        {errors.password && <p className="error">{errors.password}</p>}
+                    </div>
+                </div>
+                <div className="basics_column">
+                    <div className="info">{msgError}</div>
+                    <div className="send-button" onClick={handleSubmit}>Login</div>
+                </div>
+            </form>
         </div>
     );
 

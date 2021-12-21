@@ -2,6 +2,8 @@
 .list-group {
   list-style-type: none;
   width:100%;
+  margin: 2em 0 2em 0;
+  padding-left: 0;
 }
 
 .list-group-item {
@@ -15,7 +17,6 @@
 
 .list-group-item:hover {
   background-color: $colRosa3;
-  color: black;
   transition: 0.4s;
   cursor: pointer;
 }
@@ -29,6 +30,13 @@
 .cliente-tlf{
   margin: 0px;
 }
+
+
+.btn-cliente{
+  width: 10em;
+  font-size: large
+}
+
 
 
 
