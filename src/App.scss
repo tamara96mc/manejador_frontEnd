@@ -3,20 +3,27 @@
 
 @import 'components/Button/Button.scss';
 @import 'components/Jira_info/Jira_info.scss';
-@import 'components/Jira_proyectos/Jira_proyectos.scss';
+@import 'containers/Jira_proyectos/Jira_proyectos.scss';
+@import 'components/CodigoQR/CodigoQR.scss';
 @import 'components/Pagination/Pagination.scss';
 @import 'components/DropdownM/DropdownM.scss';
 @import 'components/DropdownJ/DropdownJ.scss';
 @import 'components/Header/Header.scss';
 @import 'containers/Jiras/Jiras.scss';
 @import 'containers/Login/Login.scss';
+@import 'containers/Clientes/Clientes.scss';
+@import 'containers/DetallesCliente/DetallesCliente.scss';
 
 
 html,
 body,
 #root {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
+  padding: 0;
   background-color: #f4fafa;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 

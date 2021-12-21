@@ -1,9 +1,8 @@
 $colRoj1 : rgb(187, 0, 14);
 $colRoj2 : rgb(227, 28, 37);
-$colRosa3 : #ff6373;
+$colRosa3 : rgb(228, 121, 121);
 
 $colAzul: #008080;
-
 
 
 $colNegro1 : black;
@@ -32,6 +31,14 @@ $colBlanco1 : #f7f3f3;
     align-items: center;
 }
 
+.container {
+    width: 90%;
+    padding: 1em;
+    font-size: 12px;
+    background-color: $colAzul;
+    margin: 1em auto 1em auto;
+
+  }
 
 //Disposal
 
@@ -173,3 +180,61 @@ h3{
         padding: 2em;
     }
 }
+
+
+input[type=text], textarea, .tipo_jira{
+   
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+  }
+
+  h1{
+      text-align: center;
+  }
+  
+  /* Style the label to display next to the inputs */
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: medium;
+  }
+  
+  
+  /* Floating column for labels: 25% width */
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+
+  .col-50 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-100 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

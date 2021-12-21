@@ -1,0 +1,34 @@
+
+.list-group {
+  list-style-type: none;
+  width:100%;
+}
+
+.list-group-item {
+  border: 0.2em solid $colBlanco1;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  color: $colBlanco1;
+  
+}
+
+.list-group-item:hover {
+  background-color: $colRosa3;
+  color: black;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.cliente-nombre{
+
+  margin: 0px;
+  font-size: medium;
+
+}
+
+.cliente-tlf{
+  margin: 0px;
+}
+
+
+

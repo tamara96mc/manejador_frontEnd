@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import Pagination from '../Pagination/Pagination';
+import Pagination from '../../components/Pagination/Pagination';
 import data from './data.json';
 
 const Jira_proyectos = () => {
