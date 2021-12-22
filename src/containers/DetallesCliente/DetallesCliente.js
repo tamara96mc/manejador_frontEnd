@@ -26,12 +26,12 @@ const DetallesCliente = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container container-campos">
       <form onSubmit={handleSubmit}>
-        <h1 className="mb-1">Datos Cliente</h1>
+        <h1 className="mb-2 mt-3">Datos cliente</h1>
         <div className="row">
           <div className="col-40">
-            <label >Nombre</label>
+            <label> <i class="fa fa-user"></i>Nombre</label>
           </div>
           <div className="col-75">
             <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente..." />
@@ -39,7 +39,7 @@ const DetallesCliente = () => {
         </div>
         <div className="row">
           <div className="col-40">
-            <label >Telefono</label>
+            <label> <i class="fa fa-whatsapp"></i>Telefono</label>
           </div>
           <div className="col-75">
             <input type="text" id="nombre" name="nombre" placeholder="Teléfono del cliente..." />
@@ -48,7 +48,7 @@ const DetallesCliente = () => {
 
 
 <div className="form-campos-personalizados">
-<h2>Campos personalizados</h2>
+<h2 className="mb-2">Campos personalizados</h2>
         {formValues.map((element, index) => (
           <div className="row" key={index}>
             <div className="col-40">
@@ -69,18 +69,16 @@ const DetallesCliente = () => {
                 <button type="button" className="send-button btn-remove" onClick={() => removeFormFields(index)}>X</button>
                 : null
             }
-            </div>
-           
-            
+            </div> 
           </div>
         ))}
-        <div className="basics_row mt-1">
+        <div className="">
         <button className="send-button btn-campos-personalizados" type="button" onClick={() => addFormFields()}>Añadir campo</button>
        </div> 
        </div> 
-        <div className="basics_row mt-2">
+        <div className="basics_row mt-2 mb-2">
           
-          <button className="send-button" type="submit">Guardar</button>
+          <button className="send-button btn-campos-guardar " type="submit">Crear</button>
         </div>
       </form>
     </div>

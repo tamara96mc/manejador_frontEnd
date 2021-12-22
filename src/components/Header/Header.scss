@@ -3,8 +3,53 @@
     margin: 0.4em 3em 0.4em 3em;
     border: 0.1em solid $colBlanco2;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.img-user{
+    width: 4.1em;
+    margin: 0.7em 3em 0.4em 3em;
+    border: 0.05em solid $colBlanco2;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: $colBlanco2;
 
 }
+
+@keyframes myAnim {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+  
+    15% {
+      transform: translateX(-30px) rotate(-6deg);
+    }
+  
+    30% {
+      transform: translateX(15px) rotate(6deg);
+    }
+  
+    45% {
+      transform: translateX(-15px) rotate(-3.6deg);
+    }
+  
+    60% {
+      transform: translateX(9px) rotate(2.4deg);
+    }
+  
+    75% {
+      transform: translateX(-6px) rotate(-1.2deg);
+    }
+  }
+
+.img-logo:hover , .img-user:hover{
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+
+
 hr{ 
   
     border:         none;

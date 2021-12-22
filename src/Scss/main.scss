@@ -196,6 +196,7 @@ input , textarea{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: $colBlanco1;
 
   }
 
@@ -274,10 +275,17 @@ input , textarea{
   }
 
   .form-user{
-
-    border: 0.1em solid $colBlanco1;
+    box-shadow: 0px 0px 11px 2px $colBlanco2;
+    border-radius: 1em;
     padding: 6em;
-    margin: 2em   ;
+    margin: 2em;
+
+  }
+
+
+.container-campos{
+  
+  height: 80%;
 
 }
 

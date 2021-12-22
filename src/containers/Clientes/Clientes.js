@@ -30,6 +30,10 @@ const Jira_proyectos = () => {
         history("/crearCliente");
     }
 
+    const verCliente = () => {
+        history("/detallesCliente");
+    }
+
     const traePeliculas = async (endPoint) => {
 
         // try {
@@ -57,7 +61,7 @@ const Jira_proyectos = () => {
 
     return (
         <div className="container basics_column">
-            <h1 className="mb-2" >Clientes</h1>
+            <h1 className="mb-2" >Lista de clientes</h1>
             {currentTableData
                 ?
 
@@ -67,10 +71,10 @@ const Jira_proyectos = () => {
 
                         {currentTableData.map(info => {
                             return (
-                                <li className="list-group-item" key={info._id}>
-                                    <p className="cliente-nombre"> {info.nombre}</p>
+                                <li className="list-group-item" onClick={() => verCliente()} key={info._id}>
+                                    <p className="cliente-nombre"><i class="fa fa-user"></i> {info.nombre}</p>
                                     <br />
-                                    <p className="cliente-tlf">{info.telefono}</p>
+                                    <p className="cliente-tlf"><i class="fa fa-whatsapp"></i>{info.telefono}</p>
 
                                 </li>
                             );
@@ -86,7 +90,7 @@ const Jira_proyectos = () => {
                         onPageChange={page => setCurrentPage(page)}
                     />
 
-                    <button className="send-button btn-cliente mt-2" onClick={() => llevame()}>Crear</button>
+                    <button className="send-button btn-cliente mt-2" onClick={() => llevame()}>Crear cliente</button>
                 </div>
                 :
                 <div className="img-load">

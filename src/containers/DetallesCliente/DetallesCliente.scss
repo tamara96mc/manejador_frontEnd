@@ -2,9 +2,11 @@
 
   width: 80%;
   padding: 0.5em;
-  border: 1px solid #ccc;
+  border: 1px solid $colBlanco2;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: $colBlanco1;
+  height: 2.3em;
 
 }
 
@@ -31,6 +33,7 @@ hr{
 
 .btn-campos-personalizados{
 
-  // margin: auto;
-
+  height: 2.3em;
+  width: 7em;
+  margin-left: 0px;
 }

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import Logo from '../../images/icon_logo.jpg';
+import user from '../../images/user.png';
 import DropdownJ from '../DropdownJ/DropdownJ';
 import DropdownM from '../DropdownM/DropdownM';
 import Hamburger from '../Hamburger/Hamburger';
+import { useNavigate } from 'react-router-dom';
 
 const Header = (props) => {
+
+    const history = useNavigate();
+
+    const goToURL = (url) => {
+        history(url);
+    }
 
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
@@ -15,7 +23,7 @@ const Header = (props) => {
 
     return (
         <div className='header'>
-            <img src={Logo} className="img-logo" />
+            <img src={Logo} className="img-logo"  onClick={() => goToURL('/jiras')}  />
 
             <div className="navigation">
                 <ul>
@@ -26,10 +34,6 @@ const Header = (props) => {
                     <li>
                         <DropdownJ />
                     </li> */}
-                    <li>
-                        <Button destino="Jira" url="/jiras" />
-                    </li>
-           
                     <li>
                         <Button destino="Clientes" url="/clientes" />
                     </li>
@@ -50,7 +54,7 @@ const Header = (props) => {
                     </li>
                   
                     <li>
-                        <Button destino="User" url="/profile" />
+                    <img src={user} className="img-user"  onClick={() => goToURL('/profile')}  />
                     </li>
                   
                 </ul>
@@ -65,6 +69,7 @@ const Header = (props) => {
         display: flex;
         justify-content: space-around;
         align-items: center;
+
 
         }
 

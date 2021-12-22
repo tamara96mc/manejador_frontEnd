@@ -1,14 +1,10 @@
 
-.container-campos{
-height: 80%;
-
-}
 
 .select-campo-jira{
 
   width: 80%;
   padding: 0.5em;
-  border: 1px solid #ccc;
+  border: 1px solid $colBlanco1;;
   border-radius: 4px;
   box-sizing: border-box;
 
@@ -23,12 +19,19 @@ height: 80%;
   padding: 2em;
   border-radius: 1em;
   width: 50em;
-  border: 1px solid #ccc;
+  border: 1px solid $colBlanco1;
   border-radius: 4px;
   margin: auto;
 }
 
 .btn-campos{
+
+  margin-left: 0px;
+  width: 8em;
+  height: 2.3em;
+}
+.btn-campos-guardar{
+
 
   width: 8em;
   height: 3em;

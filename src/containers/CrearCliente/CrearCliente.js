@@ -15,7 +15,7 @@ const CrearCliente = () => {
         <h1 className="mb-3">Nuevo cliente</h1>
         <div className="row">
           <div className="col-40">
-            <label >Nombre</label>
+            <label> <i class="fa fa-user"></i>Nombre</label>
           </div>
           <div className="col-75">
             <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente..." />
@@ -23,14 +23,14 @@ const CrearCliente = () => {
         </div>
         <div className="row">
           <div className="col-40">
-            <label >Teléfono</label>
+            <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
           </div>
           <div className="col-75">
             <input type="text" id="nombre" name="nombre" placeholder="Teléfono del cliente..." />
           </div>
         </div>
         <div className="basics_row mt-5">
-          <button className="send-button" type="submit">Crear</button>
+          <button className="send-button" type="submit">Crear cliente</button>
         </div>
       </form>
     </div>
