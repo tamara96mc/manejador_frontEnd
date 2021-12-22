@@ -8,6 +8,7 @@
 @import 'components/DropdownM/DropdownM.scss';
 @import 'components/DropdownJ/DropdownJ.scss';
 @import 'components/Header/Header.scss';
+@import 'components/Footer/Footer.scss';
 
 @import 'containers/Jiras/Jiras.scss';
 @import 'containers/Login/Login.scss';
@@ -28,3 +29,10 @@ body,
   box-sizing: border-box;
 }
 
+.root{
+
+  overflow-x:hidden;
+  max-width:100%;
+  width:100vw;
+
+}

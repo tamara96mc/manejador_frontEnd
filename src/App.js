@@ -11,13 +11,14 @@ import Register from './containers/Register/Register';
 import Clientes from './containers/Clientes/Clientes';
 import DetallesCliente from './containers/DetallesCliente/DetallesCliente';
 import CrearCliente from './containers/CrearCliente/CrearCliente';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
        <BrowserRouter>
       <Header/>
-        <Routes>
+        <Routes >
           <Route  path="/" element={<Home/>} />
           <Route  path="/login" element={<Login/>} />
           <Route  path="/register" element={<Register/>} />
@@ -29,7 +30,7 @@ function App() {
           <Route  path="/crearCliente" element={<CrearCliente/>} />
           <Route  path="/campos" element={<Jira_campos/>} />
         </Routes>
-
+        <Footer/>
       </BrowserRouter>
     </div>
   );

@@ -11,8 +11,8 @@ const CrearCliente = () => {
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
-        <h1 className="mb-1">Nuevo cliente</h1>
+      <form className="form-user" onSubmit={handleSubmit}>
+        <h1 className="mb-3">Nuevo cliente</h1>
         <div className="row">
           <div className="col-40">
             <label >Nombre</label>
@@ -29,7 +29,7 @@ const CrearCliente = () => {
             <input type="text" id="nombre" name="nombre" placeholder="Teléfono del cliente..." />
           </div>
         </div>
-        <div className="basics_row mt-2">
+        <div className="basics_row mt-5">
           <button className="send-button" type="submit">Crear</button>
         </div>
       </form>

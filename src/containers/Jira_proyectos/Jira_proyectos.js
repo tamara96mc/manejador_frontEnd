@@ -49,7 +49,7 @@ const Jira_proyectos = () => {
 
   return (
     <div  className="container">
-            <h1>Proyectos de Jira</h1>
+            <h1 className="mb-2">Proyectos de Jira</h1>
             {currentTableData
             ?
 

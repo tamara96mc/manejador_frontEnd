@@ -33,9 +33,9 @@ const Register = () => {
 
     return (
 
-        <div className="container-medium">
+        <div className="container">
             <form className='form-user' >
-                <h1 className='mb-1'  >Datos usuario</h1>
+                <h1 className='mb-3'  >Datos usuario</h1>
                 <div className="row">
                     <div className="col-40">
                         <label >Nombre</label>
@@ -83,7 +83,7 @@ const Register = () => {
                     </div>
                 </div>
 
-                <div className="basics_column">
+                <div className="basics_column mt-4">
                     <div className="info">{msgError}</div>
                     <div className="send-button" onClick={handleSubmit}>Crear usuario</div>
                 </div>

@@ -29,36 +29,39 @@ const Header = (props) => {
                     <li>
                         <Button destino="Jira" url="/jiras" />
                     </li>
+           
                     <li>
                         <Button destino="Clientes" url="/clientes" />
                     </li>
+                
                     <li>
                         <Button destino="Proyectos" url="/proyectos" />
                     </li>
                     <li>
                         <Button destino="Campos" url="/campos" />
                     </li>
-                    <li>
-
-                    </li>
+              
                     <li>
                         <Button destino="LogIn" url="/login" />
                     </li>
+           
                     <li>
                         <Button destino="SingUp" url="/register" />
                     </li>
+                  
                     <li>
                         <Button destino="User" url="/profile" />
                     </li>
+                  
                 </ul>
             </div>
-            <div className="hamburger1" onClick={toggleHamburger}>
+            {/* <div className="hamburger1" onClick={toggleHamburger}>
                 <Hamburger isOpen={hamburgerOpen} />
-            </div >
+            </div > */}
             <style jsx>{`
 
         .header{
-        background-color:#008080;
+        background-color: rgb(185, 158, 158);
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -66,7 +69,7 @@ const Header = (props) => {
         }
 
         .navigation{
-        background-color:#008080;
+        background-color:rgb(185, 158, 158);
         width: 100%;
         height: 4em;
         display: flex;
@@ -82,7 +85,7 @@ const Header = (props) => {
        justify-content: space-between;
         align-items: center;
         overflow: hidden;
-        width: 45em;
+        width: 100%;
         }
         .navigation ul li{
         list-style-type: none;
@@ -95,33 +98,33 @@ const Header = (props) => {
         z-index: 6;
     
         } 
-    @media (max-width: 923px){
+    // @media (max-width: 923px){
 
-        .hamburger1{
-        width: 7em;
-        display:flex;
-        z-index: 6;
-        }
+    //     .hamburger1{
+    //     width: 7em;
+    //     display:flex;
+    //     z-index: 6;
+    //     }
        
-        .navigation ul{
-        display: ${hamburgerOpen ? 'flex' : 'none'};
-        background-color: #008080;
-        height: 100%;
-        width: 8em;
-        position: fixed;
-        top: 0;
-        right: 0;
-        margin-top:1em;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    //     .navigation ul{
+    //     display: ${hamburgerOpen ? 'flex' : 'none'};
+    //     background-color: #008080;
+    //     height: 100%;
+    //     width: 8em;
+    //     position: fixed;
+    //     top: 0;
+    //     right: 0;
+    //     margin-top:1em;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     align-items: center;
 
-        }
+    //     }
 
-        .navigation ul li{
-        list-style-type: none;
-           margin:0.5em;
-    }
+    //     .navigation ul li{
+    //     list-style-type: none;
+    //        margin:0.5em;
+    // }
 `}</style>
         </div>
     )

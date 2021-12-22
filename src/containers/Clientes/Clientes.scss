@@ -1,4 +1,3 @@
-
 .list-group {
   list-style-type: none;
   width:100%;
@@ -12,6 +11,7 @@
   margin: 0.5em;
   padding: 0.5em;
   color: $colBlanco1;
+  width: 20em;
   
 }
 
@@ -33,6 +33,7 @@
 
 
 .btn-cliente{
+  margin-left: 2em;
   width: 10em;
   font-size: large
 }

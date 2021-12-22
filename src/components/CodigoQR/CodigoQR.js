@@ -4,7 +4,7 @@ import qr from '../../images/qr.png'
 const Jira_info = () => {
 
   return (
-    <div  className="container">
+    <div  className="container-component">
  
         <h1>Vincular con WhatsApp</h1>
         <div  className="row row-qr">
