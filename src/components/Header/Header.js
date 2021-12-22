@@ -61,7 +61,7 @@ const Header = (props) => {
             <style jsx>{`
 
         .header{
-        background-color: rgb(185, 158, 158);
+        background-color: rgb(204, 107, 107);;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -69,7 +69,7 @@ const Header = (props) => {
         }
 
         .navigation{
-        background-color:rgb(185, 158, 158);
+        background-color: rgb(204, 107, 107);;
         width: 100%;
         height: 4em;
         display: flex;

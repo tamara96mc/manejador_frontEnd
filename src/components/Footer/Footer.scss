@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: $colBlanco2;
+    background-color: $colRosa3;
     height: 9vh;
     
 }
@@ -47,7 +47,7 @@
     transition: color .4s ease;
 }
 .socials a:hover i{
-    color: $colRoj2;
+    color: $colAzul;
 }
 
 
