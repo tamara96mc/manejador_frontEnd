@@ -8,7 +8,7 @@ const Jiras = (props) => {
     return (
 
 
-        <div className='container'>
+        <div className='container-jira'>
 
             {/* <div className="row">
                 <div className="col-100 basics_row_space">

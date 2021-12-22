@@ -45,9 +45,9 @@ const Profile = (props) => {
     
     return (
 
-        <div  className="container-medium">
+        <div  className="container">
         <form className='form-user'>
-          <h1 className='mb-1' >Datos usuario</h1>
+          <h1 className='mb-3' >Datos usuario</h1>
           <div  className="row">
             <div  className="col-40">
               <label >Nombre</label>
@@ -87,7 +87,7 @@ const Profile = (props) => {
           </div>
   
   
-          <div  className="basics_row_space mt-2">
+          <div  className="basics_row_space mt-5">
           <div className="send-button" onClick={handleSubmit}>Actualizar</div>
             <div className="send-button" onClick={logOut}>Cerrar sesión</div>
           </div>

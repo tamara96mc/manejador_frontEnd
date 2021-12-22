@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import Pagination from '../../components/Pagination/Pagination';
 import data from './data.json';
+
 
 const Jira_proyectos = () => {
 
@@ -21,6 +24,11 @@ const Jira_proyectos = () => {
     }, []);
 
 
+    const history = useNavigate();
+
+    const llevame = () => {
+        history("/crearCliente");
+    }
 
     const traePeliculas = async (endPoint) => {
 
@@ -49,7 +57,7 @@ const Jira_proyectos = () => {
 
     return (
         <div className="container basics_column">
-            <h1>Clientes</h1>
+            <h1 className="mb-2" >Clientes</h1>
             {currentTableData
                 ?
 
@@ -78,7 +86,7 @@ const Jira_proyectos = () => {
                         onPageChange={page => setCurrentPage(page)}
                     />
 
-                    <button className="send-button btn-cliente" onClick={() => { }}>Crear</button>
+                    <button className="send-button btn-cliente mt-2" onClick={() => llevame()}>Crear</button>
                 </div>
                 :
                 <div className="img-load">

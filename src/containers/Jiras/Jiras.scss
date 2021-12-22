@@ -4,5 +4,17 @@
     border: 0.1em solid $colBlanco1;
     width: 90%;
   }
+
+  .container-jira{
+
+    background-color: $colAzul;
+    margin: auto;
+    color: $colBlanco2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
   
 

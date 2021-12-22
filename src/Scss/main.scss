@@ -1,5 +1,5 @@
 $colRoj1 : rgb(187, 0, 14);
-$colRoj2 :  #ff6373;;
+$colRoj2 :  #f7394c;;
 $colRosa3 : rgb(182, 101, 101);
 
 $colAzul: #008080;
@@ -8,7 +8,7 @@ $colAzul: #008080;
 $colNegro1 : black;
 $colNegro2 : rgb(29, 29, 28);
 $colNegro3 : #4e4e4e;
-$colNegro4 : rgb(148, 150, 148);
+$colNegro4 : rgb(185, 158, 158);
 $colBlanco1 : #f7f3f3;
 $colBlanco2 : rgb(255, 255, 255);
 
@@ -32,12 +32,26 @@ $colBlanco2 : rgb(255, 255, 255);
     align-items: center;
 }
 
+.container-component {
+  width: 80%;
+  height: 61em;
+  font-size: 12px;
+  background-color: $colAzul;
+  color: $colBlanco2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+}
+
 .container {
-    width: 90%;
+    width: 98.8%;
     padding: 1em;
+    height: 61em;
     font-size: 12px;
     background-color: $colAzul;
-    margin: 1em auto 1em auto;
     color: $colBlanco2;
     display: flex;
     flex-direction: column;
@@ -45,18 +59,6 @@ $colBlanco2 : rgb(255, 255, 255);
     align-items: center;
   }
 
-  .container-medium {
-    width: 50%;
-    padding: 1em;
-    font-size: 12px;
-    background-color: $colAzul;
-    margin: 1em auto 1em auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: $colBlanco2;
-  }
 
 //Disposal
 
@@ -290,13 +292,14 @@ input , textarea{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 1em;
 
   }
 
   .form-user{
 
     border: 0.1em solid $colBlanco1;
-    padding: 1em  3em 1em 3em ;
+    padding: 6em;
     margin: 2em   ;
 
 }

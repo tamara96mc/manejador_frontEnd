@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Jira_info = () => {
 
   return (
-    <div  className="container">
+    <div  className="container-component">
       <h1>Datos Jira</h1>
       <form className="form-datos-jira">
         <div  className="row">

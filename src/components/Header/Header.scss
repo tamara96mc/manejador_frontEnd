@@ -1,6 +1,15 @@
 .img-logo{
     width: 4em;
-    margin-left: 1.8em;
+    margin: 0.4em 3em 0.4em 3em;
+    border: 0.1em solid $colBlanco2;
+    border-radius: 50%;
 
 }
-
+hr{ 
+  
+    border:         none;
+    border-left:    1px solid $colBlanco2;
+    height:         5em;
+    width:          1px;      
+    margin: 0px; 
+}

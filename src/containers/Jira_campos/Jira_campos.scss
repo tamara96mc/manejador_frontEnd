@@ -1,3 +1,9 @@
+
+.container-campos{
+height: 80%;
+
+}
+
 .select-campo-jira{
 
   width: 80%;
@@ -7,7 +13,6 @@
   box-sizing: border-box;
 
 }
-
 .btn-remove{
   
   width: 1.5em;
@@ -15,23 +20,31 @@
 }
 
 .form-campos{
-
-  margin: 2em;
   padding: 2em;
   border-radius: 1em;
-  width: 40em;
+  width: 50em;
   border: 1px solid #ccc;
   border-radius: 4px;
-
+  margin: auto;
 }
 
 .btn-campos{
 
   width: 8em;
+  height: 3em;
 }
 
 span{
 
   width: 2em;
+
+}
+
+.p-info-campos{
+
+  text-align: justify;
+  font-size: medium;
+  line-height: 1.8;
+  margin: 2em 0 2em 0;
 
 }

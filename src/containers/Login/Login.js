@@ -33,9 +33,9 @@ const Login = (props) => {
 
     return (
 
-        <div className="container-medium">
+        <div className="container">
             <form className='form-user' >
-                <h1 className='mb-1'>Login</h1>
+                <h1 className='mb-2'>Login</h1>
                 <div className="row">
                     <div className="col-40">
                         <label >Usuario</label>
@@ -69,7 +69,7 @@ const Login = (props) => {
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                 </div>
-                <div className="basics_column">
+                <div className="basics_column mt-3">
                     <div className="info">{msgError}</div>
                     <div className="send-button" onClick={handleSubmit}>Login</div>
                 </div>
