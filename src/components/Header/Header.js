@@ -27,9 +27,9 @@ const Header = (props) => {
             <i className="fa fa-bars fa fa-3x" onClick={() => toggleHamburger()}></i>
             <div className="navigation">
                 <ul className={` ${hamburgerOpen ? "show" : ""}`}>
-                  
+
                     <li className='img-nav'>
-                    <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />
+                        <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />
                     </li>
                     <li>
                         <Button destino="Clientes" url="/clientes" />
@@ -49,11 +49,11 @@ const Header = (props) => {
                     <li>
                         <Button destino="SingUp" url="/register" />
                     </li>
-                    <li  className='img-nav'>
-                    <img src={user} className="img-user" onClick={() => goToURL('/profile')} />
+                    <li className='img-nav'>
+                        <img src={user} className="img-user" onClick={() => goToURL('/profile')} />
                     </li>
 
-                </ul>              
+                </ul>
             </div>
 
             <style jsx>{`
@@ -85,7 +85,7 @@ const Header = (props) => {
   }
 
   .navigation ul li {
-
+margin:auto;
     opacity: 1;
   }
 
@@ -94,7 +94,7 @@ const Header = (props) => {
     display: block;
     position: absolute;
     top: 0.4em;
-    right:4em;
+    right:0.4em;
     margin:auto;
     color: #f7f3f3;
     cursor: pointer;
@@ -105,6 +105,13 @@ const Header = (props) => {
     width: 100%;
     opacity: 1;
 }
+
+.img-logo , .img-user{
+
+    margin: 2em;
+
+}
+
 
 }
 

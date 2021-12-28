@@ -1,10 +1,12 @@
 .footer-bottom{
 
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
     justify-content: space-around;
     align-items: center;
     background-color: $colRosa3;
-    height: 9vh;
+    height: 10%;
     
 }
 .footer-bottom p{
@@ -13,6 +15,7 @@
     word-spacing: 2px;
     color: $colBlanco2;
     font-size: large;
+    margin: auto;
 
 }
 .footer-bottom p a{
@@ -21,6 +24,7 @@
   text-decoration: none;
   color: $colBlanco2;
   font-size: large;
+
 }
 
 .socials{
@@ -32,16 +36,16 @@
 }
 .socials li{
     width: 2em;
-    margin: 0 10px;
+    margin: 0 2em;
 }
 .socials a{
     text-decoration: none;
     color: $colBlanco2;
-    padding: 5px;
 }
+   
 .socials a i{
     font-size: 1.5rem;
-    width: 5px;
+    width: 0.3px;
     transition: color .4s ease;
 }
 .socials a:hover i{
@@ -49,12 +53,19 @@
 }
 
 
+@media (max-width: 923px){
 
+    .footer-bottom p{
+        text-align: center;
+    }
+    .footer-bottom{
+    grid-template-columns: 1fr;
+    height: 10em;
+  
+    }
 
-@media (max-width:500px) {
-.socials{
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+    .socials {
+        padding: 0;
+    }
+ 
 }
