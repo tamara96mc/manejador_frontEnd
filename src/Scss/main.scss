@@ -34,7 +34,7 @@ $colBlanco2 : rgb(255, 255, 255);
 
 .container-component {
   width: 80%;
-  height: 61em;
+  height: 100%;
   font-size: 12px;
   background-color: $colAzul;
   color: $colBlanco2;
@@ -42,14 +42,14 @@ $colBlanco2 : rgb(255, 255, 255);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 0 auto;
 
 }
 
 .container {
-    width: 98.8%;
+    width: 100%;
     padding: 1em;
-    height: 61em;
+    height: 100%;
     font-size: 12px;
     background-color: $colAzul;
     color: $colBlanco2;
@@ -94,6 +94,7 @@ $colBlanco2 : rgb(255, 255, 255);
 
 h1{
     text-align: center;
+    width: 100%;
 }
 
 h3{
@@ -277,24 +278,24 @@ input , textarea{
   .form-user{
     box-shadow: 0px 0px 11px 2px $colBlanco2;
     border-radius: 1em;
-    padding: 6em;
-    margin: 2em;
-
+    margin: 5em 2em;
   }
 
 
 .container-campos{
   
-  height: 80%;
+  padding: 0px;
 
 }
+
+
 
 @media screen and (max-width: 600px) {
     .row{
         display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     label{

@@ -26,9 +26,7 @@ const DetallesCliente = () => {
   }
 
   return (
-    <div className="container container-campos">
-     
-        <div >
+    <div className="container container-campos">   
           <h1 className="mb-4 mt-3">Campos personalizados de Jira</h1>
          <form className="form-campos" onSubmit={handleSubmit}>
          <p className="p-info-campos">En esta pantalla podemos configurar los campos personalidos de Jira, <br/> los cuales pueden ser utilizados en los clientes para añadir más información al ticket en su creación.<br/> En la caja izquierda ponemos el indetificador del campo en Jira y en la otra el nombre del campo. </p>
@@ -56,7 +54,6 @@ const DetallesCliente = () => {
           <button className="send-button btn-campos" type="button" onClick={() => addFormFields()}>Añadir campo</button>
     </form>
     
-        </div>
         <div className="basics_row_space mt-5">
         
           <button className="send-button btn-campos-guardar" type="submit">Guardar</button>

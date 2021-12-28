@@ -18,6 +18,7 @@ function App() {
     <div className="App">
        <BrowserRouter>
       <Header/>
+      <div className='main'>
         <Routes >
           <Route  path="/" element={<Home/>} />
           <Route  path="/login" element={<Login/>} />
@@ -30,6 +31,10 @@ function App() {
           <Route  path="/crearCliente" element={<CrearCliente/>} />
           <Route  path="/campos" element={<Jira_campos/>} />
         </Routes>
+        </div>
+        <div className='prueba'>
+
+        </div>
         <Footer/>
       </BrowserRouter>
     </div>

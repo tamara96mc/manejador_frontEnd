@@ -19,117 +19,97 @@ const Header = (props) => {
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
+        console.log("entra")
     }
 
     return (
         <div className='header'>
-            <img src={Logo} className="img-logo"  onClick={() => goToURL('/jiras')}  />
-
+            <i className="fa fa-bars fa fa-3x" onClick={() => toggleHamburger()}></i>
             <div className="navigation">
-                <ul>
-                    {/*
-                    <li>
-                        <DropdownM />
+                <ul className={` ${hamburgerOpen ? "show" : ""}`}>
+                  
+                    <li className='img-nav'>
+                    <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />
                     </li>
-                    <li>
-                        <DropdownJ />
-                    </li> */}
                     <li>
                         <Button destino="Clientes" url="/clientes" />
                     </li>
-                
+
                     <li>
                         <Button destino="Proyectos" url="/proyectos" />
                     </li>
                     <li>
                         <Button destino="Campos" url="/campos" />
                     </li>
-              
+
                     <li>
                         <Button destino="LogIn" url="/login" />
                     </li>
-           
+
                     <li>
                         <Button destino="SingUp" url="/register" />
                     </li>
-                  
-                    <li>
-                    <img src={user} className="img-user"  onClick={() => goToURL('/profile')}  />
+                    <li  className='img-nav'>
+                    <img src={user} className="img-user" onClick={() => goToURL('/profile')} />
                     </li>
-                  
-                </ul>
+
+                </ul>              
             </div>
-            {/* <div className="hamburger1" onClick={toggleHamburger}>
-                <Hamburger isOpen={hamburgerOpen} />
-            </div > */}
+
             <style jsx>{`
 
-        .header{
-        background-color: rgb(204, 107, 107);;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+.fa-bars{
 
+    display: none;
+}
+  
+  .navigation ul.show {
+    transform: translateX(-20px);
 
-        }
+  }
 
-        .navigation{
-        background-color: rgb(204, 107, 107);;
-        width: 100%;
-        height: 4em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
+            @media (max-width: 923px){
+ 
+  .navigation ul {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2f3640;
+    width: 40%;
+    height: 100%;
+    opacity: 0.9;
+    padding: 2em;
+    transform: translateX(-500px);
+    transition: transform 0.5s ease-in-out;
+  }
 
+  .navigation ul li {
 
-        .navigation ul{
-        margin:0;
-        padding:0;
-        display: flex;
-       justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-        width: 100%;
-        }
-        .navigation ul li{
-        list-style-type: none;
-      // margin:2em;
+    opacity: 1;
+  }
+
+  .fa-bars{
+
+    display: block;
+    position: absolute;
+    top: 0.4em;
+    right:4em;
+    margin:auto;
+    color: #f7f3f3;
+    cursor: pointer;
+}
+
+.nav-button{
+
+    width: 100%;
+    opacity: 1;
+}
+
+}
+
        
-        }
-        
-        .hamburger1{
-        display: none;
-        z-index: 6;
-    
-        } 
-    // @media (max-width: 923px){
 
-    //     .hamburger1{
-    //     width: 7em;
-    //     display:flex;
-    //     z-index: 6;
-    //     }
-       
-    //     .navigation ul{
-    //     display: ${hamburgerOpen ? 'flex' : 'none'};
-    //     background-color: #008080;
-    //     height: 100%;
-    //     width: 8em;
-    //     position: fixed;
-    //     top: 0;
-    //     right: 0;
-    //     margin-top:1em;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
-
-    //     }
-
-    //     .navigation ul li{
-    //     list-style-type: none;
-    //        margin:0.5em;
-    // }
 `}</style>
         </div>
     )
