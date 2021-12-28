@@ -9,10 +9,10 @@ const Jira_info = () => {
         <h1>Vincular con WhatsApp</h1>
         <div  className="row row-qr">
           <div  className="col-50">
-            <p className="p-info-manejador">Para poder vincular el número de teléfono al manejador de JIRA tienes que pulsar el botón de <b>'Generar QR'</b> y después escanear el código con tu aplicacion de WhatsApp en: <br/> <i>Dispositivos vinculados {'>'} Vincular un dispositivo</i> </p>
+            <p className="p-info-manejador">Para poder vincular el número de teléfono al manejador de JIRA tienes que pulsar el botón de <b>* Generar QR *</b> y después escanear el código con tu aplicacion de WhatsApp en: <br/> <i>Dispositivos vinculados {'>'} Vincular un dispositivo</i> </p>
             <div className="basics_row">
-            <label >Teléfono</label>
-            <input type="text" id="telefono" name="telefono" placeholder="645 234 567" />
+            <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
+            <input className="input-tlf" type="text" id="telefono" name="telefono" placeholder="645 234 567" />
             </div>
             
           </div>

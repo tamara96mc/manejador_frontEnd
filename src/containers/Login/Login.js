@@ -35,10 +35,10 @@ const Login = (props) => {
 
         <div className="container">
             <form className='form-user' >
-                <h1 className='mb-2'>Login</h1>
+                <h1 className='mb-2'>LogIn</h1>
                 <div className="row">
                     <div className="col-40">
-                        <label >Usuario</label>
+                   <label ><i class="fa fa-user"></i> Usuario</label>
                     </div>
                     <div className="col-60">
                         <input
@@ -55,7 +55,7 @@ const Login = (props) => {
 
                 <div className="row">
                     <div className="col-40">
-                        <label >Contraseña</label>
+                        <label > <i class="fa fa-key"></i> Contraseña</label>
                     </div>
                     <div className="col-60">
                         <input

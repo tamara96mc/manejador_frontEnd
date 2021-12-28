@@ -47,10 +47,10 @@ const Profile = (props) => {
 
         <div  className="container">
         <form className='form-user'>
-          <h1 className='mb-3' >Datos usuario</h1>
+          <h1 className='mb-3' >Crear usuario</h1>
           <div  className="row">
             <div  className="col-40">
-              <label >Nombre</label>
+              <label> <i class="fa fa-user"></i>Nombre</label>
             </div>
             <div  className="col-60">
               <input  name="nombre"
@@ -62,7 +62,7 @@ const Profile = (props) => {
           </div>
           <div  className="row">
             <div  className="col-40">
-              <label >Email</label>
+              <label> <i class="fa fa-envelope"></i>Email</label>
             </div>
             <div  className="col-60">
               <input  name="email"
@@ -75,7 +75,7 @@ const Profile = (props) => {
   
           <div  className="row">
             <div  className="col-40">
-              <label >Contraseña</label>
+              <label> <i class="fa fa-key"></i>Contraseña</label>
             </div>
             <div  className="col-60">
             <input  name="contraseya"
