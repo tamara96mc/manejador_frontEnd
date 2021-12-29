@@ -67,9 +67,17 @@ const DetallesCliente = () => {
                         {currentTableData.map(info => {
                             return (
                                 <li className="list-group-item" key={info._id}>
-                                    <p className="cliente-nombre"> {info.proyecto}</p>
+                                  
+                                  <div className="row" >
+                                        <div className="col-75">
+                                        <p className="cliente-nombre"> {info.proyecto}</p>
                                     <br />
                                     <p className="cliente-nombre"> {info.tipo}</p>
+                                    </div>
+                                        <div className="col-25">
+                                        <i className="far fa-trash-alt fa-2x"></i>
+                                        </div>
+                                    </div>
                                 </li>
                             );
                         })}

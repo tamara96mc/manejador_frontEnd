@@ -55,69 +55,6 @@ const Header = (props) => {
 
                 </ul>
             </div>
-
-            <style jsx>{`
-
-.fa-bars{
-
-    display: none;
-}
-  
-  .navigation ul.show {
-    transform: translateX(-20px);
-
-  }
-
-            @media (max-width: 923px){
- 
-  .navigation ul {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #2f3640;
-    width: 40%;
-    height: 100%;
-    opacity: 0.9;
-    padding: 2em;
-    transform: translateX(-500px);
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .navigation ul li {
-margin:auto;
-    opacity: 1;
-  }
-
-  .fa-bars{
-
-    display: block;
-    position: absolute;
-    top: 0.4em;
-    right:0.4em;
-    margin:auto;
-    color: #f7f3f3;
-    cursor: pointer;
-}
-
-.nav-button{
-
-    width: 100%;
-    opacity: 1;
-}
-
-.img-logo , .img-user{
-
-    margin: 2em;
-
-}
-
-
-}
-
-       
-
-`}</style>
         </div>
     )
 };

@@ -72,10 +72,16 @@ const Jira_proyectos = () => {
                         {currentTableData.map(info => {
                             return (
                                 <li className="list-group-item" onClick={() => verCliente()} key={info._id}>
-                                    <p className="cliente-nombre"><i class="fa fa-user"></i> {info.nombre}</p>
+                                    <div className="row" >
+                                        <div className="col-75">
+                                        <p className="cliente-nombre"><i class="fa fa-user"></i> {info.nombre}</p>
                                     <br />
                                     <p className="cliente-tlf"><i class="fa fa-whatsapp"></i>{info.telefono}</p>
-
+                                    </div>
+                                        <div className="col-25">
+                                        <i className="far fa-trash-alt fa-2x"></i>
+                                        </div>
+                                    </div>
                                 </li>
                             );
                         })}
