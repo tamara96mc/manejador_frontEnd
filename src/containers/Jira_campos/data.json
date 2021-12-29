@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "nombre": "Empresa"
+
+    },
+    {
+        "id": 2,
+        "nombre": "Módulo"
+       
+    },
+    {
+        "id": 3,
+        "nombre": "Área"
+      
+    },
+    {
+        "id": 4,
+        "nombre": "Grupo"
+      
+    },
+    {
+        "id": 5,
+        "nombre": "Servicio"
+  
+    },
+    {
+        "id": 6,
+        "nombre": "Correo"
+
+    }
+    
+]

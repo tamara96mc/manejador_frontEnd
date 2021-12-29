@@ -1,6 +1,6 @@
 .select-campo-jira{
 
-  width: 80%;
+  width: 100%;
   padding: 0.5em;
   border: 1px solid $colBlanco2;
   border-radius: 4px;
@@ -37,3 +37,49 @@ hr{
   width: 7em;
   margin-left: 0px;
 }
+
+.ctn-crear-cliente  {
+  width: 100%;
+
+}
+
+.ctn-ver-cliente {
+  
+  width: 100%;
+ 
+}
+
+.ctn-cliente{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+
+@media (max-width: 923px){
+
+  .ctn-cliente{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  
+  }
+  
+  .ctn-crear-cliente  {
+    width: 100%;
+  
+  }
+  
+  .ctn-ver-cliente {
+    width: 100%;
+  
+  }
+  
+  }

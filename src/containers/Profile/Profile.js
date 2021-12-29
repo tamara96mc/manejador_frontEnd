@@ -47,7 +47,7 @@ const Profile = (props) => {
 
         <div  className="container">
         <form className='form-user'>
-          <h1 className='mb-3' >Crear usuario</h1>
+          <h1 className='mb-3' >Datos usuario</h1>
           <div  className="row">
             <div  className="col-40">
               <label> <i class="fa fa-user"></i>Nombre</label>
