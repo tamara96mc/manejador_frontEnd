@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
+
 import Pagination from '../../components/Pagination/Pagination';
 import data from './data.json';
 
-const Jira_proyectos = () => {
 
+const DetallesCliente = () => {
 
   let PageSize = 5;
 
@@ -14,65 +15,66 @@ const Jira_proyectos = () => {
 
   useEffect(() => {
 
-    setPedidosActivos(data);
-    setCurrentPage(1);
+      setPedidosActivos(data);
+      setCurrentPage(1);
 
       // traePeliculas("/pedido");
   }, []);
 
-
-
-  const traePeliculas = async (endPoint) => {
-
-      // try {
-      //     let token = props.credentials.token;
-      //     //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
-      //     let config = {
-      //         headers: { Authorization: `Bearer ${token}` }
-      //     };
-      //     let res = await clienteAxios.get(endPoint, config);
-
-      //     setPedidosActivos(res.data);
-      //     setCurrentPage(1);
-      //     console.log('lenght' ,res.data.length);
-
-      // } catch (error) {
-      //     console.log(error);
-      // }
-  };
+  let handleSubmit = (event) => {
+    event.preventDefault();
+  
+  }
 
   const currentTableData = useMemo(() => {
-      const firstPageIndex = (currentPage - 1) * PageSize;
-      const lastPageIndex = firstPageIndex + PageSize;
-      return pedidosActivos.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return pedidosActivos.slice(firstPageIndex, lastPageIndex);
+}, [currentPage]);
 
   return (
-    <div  className="container">
-            <h1 className="mb-2">Proyectos y tipos tarea en Jira</h1>
+    <div className="container container-campos">
+      <h1 className="mb-4 mt-3">Proyectos de Jira</h1>
+
+      <div className="ctn-campo basics_row ">
+        <div className="ctn-crear-campo basics_column">
+
+          <h2 className="mb-1">Crear proyecto</h2>
+          <form className="form-campos basics_column" onSubmit={handleSubmit}>
+            <p className="p-info-campos">En esta pantalla podemos configurar los proyectos de Jira, <br /> los cuales pueden ser elegidos cuando crear un ticket por WhatsApp <i class="fa fa-whatsapp" aria-hidden="true"></i> </p>
+
+            <div className="campos-col-50">
+              <input className="input-campos" type="text" id="id" name="id" placeholder="Nombre del proyecto" v />
+            </div>
+            <span></span>
+            <div className="campos-col-50">
+              <input className="input-campos" type="text" id="nombre" name="nombre" placeholder="Tipo de proyecto" />
+            </div>
+            <button className="send-button btn-campos-guardar" type="submit">Guardar</button>
+          </form>
+        </div>
+
+        <div className="ctn-ver-campo basics_column">
+
+        <h2 className="mb-1" >Lista de proyectos</h2>
             {currentTableData
-            ?
+                ?
 
-                <div className="basics_column">
-                    <table className="table-responsive mt-1 mb-1">
-                        <thead>
-                            <tr>
-                                <th>Proyecto</th>
-                                <th>Tipo de tarea</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div className="">
+                     <input type="text" id="nombre" name="nombre" placeholder="Buscar proyecto.." />
+                    <ul className="list-group">
 
-                            {currentTableData.map(info => {
-                                return (
-                                    <tr key={info._id}>
-                                        <td>{info.proyecto}</td>
-                                        <td>{info.tipo}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                        {currentTableData.map(info => {
+                            return (
+                                <li className="list-group-item" key={info._id}>
+                                    <p className="cliente-nombre"> {info.proyecto}</p>
+                                    <br />
+                                    <p className="cliente-nombre"> {info.tipo}</p>
+                                </li>
+                            );
+                        })}
+                    </ul>
+
 
                     <Pagination
                         className="pagination-bar"
@@ -81,14 +83,20 @@ const Jira_proyectos = () => {
                         pageSize={PageSize}
                         onPageChange={page => setCurrentPage(page)}
                     />
-                      <button className="send-button btn-proyectos" onClick={() => { }}>Actualizar</button>
                 </div>
                 :
                 <div className="img-load">
-                    <p className="no-pedidos">Aún no hay proyectos</p>
+                    <p className="no-pedidos">Aún no hay campos</p>
                 </div>
             }
+
         </div>
+
+      </div>
+
+
+    </div>
+
   )
 };
-export default Jira_proyectos;
+export default DetallesCliente;

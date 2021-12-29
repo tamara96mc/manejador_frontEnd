@@ -1,14 +1,4 @@
 
-
-.select-campo-jira{
-
-  width: 80%;
-  padding: 0.5em;
-  border: 1px solid $colBlanco1;;
-  border-radius: 4px;
-  box-sizing: border-box;
-
-}
 .btn-remove{
   
   width: 1.5em;
@@ -49,5 +39,56 @@ span{
   font-size: medium;
   line-height: 1.8;
   margin: 2em 0 2em 0;
+
+}
+
+.ctn-crear-campo  {
+  width: 100%;
+
+}
+
+.ctn-ver-campo {
+  
+  width: 100%;
+ 
+}
+
+.ctn-campo{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+h2{
+  margin: auto;
+}
+
+@media (max-width: 923px){
+
+.ctn-campo{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+.ctn-crear-campo  {
+  width: 100%;
+ 
+
+}
+
+.ctn-ver-campo {
+  margin-top: 20em;
+  width: 100%;
+
+}
 
 }
