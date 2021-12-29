@@ -15,22 +15,22 @@ const DetallesCliente = () => {
 
   useEffect(() => {
 
-      setPedidosActivos(data);
-      setCurrentPage(1);
+    setPedidosActivos(data);
+    setCurrentPage(1);
 
-      // traePeliculas("/pedido");
+    // traePeliculas("/pedido");
   }, []);
 
   let handleSubmit = (event) => {
     event.preventDefault();
-  
+
   }
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return pedidosActivos.slice(firstPageIndex, lastPageIndex);
-}, [currentPage]);
+  }, [currentPage]);
 
   return (
     <div className="container container-campos">
@@ -56,38 +56,45 @@ const DetallesCliente = () => {
 
         <div className="ctn-ver-campo basics_column">
 
-        <h2 className="mb-1" >Lista de campos</h2>
-            {currentTableData
-                ?
+          <h2 className="mb-1" >Lista de campos</h2>
+          {currentTableData
+            ?
 
-                <div className="">
-                     <input type="text" id="nombre" name="nombre" placeholder="Buscar campos.." />
-                    <ul className="list-group">
+            <div className="">
+              <input type="text" id="nombre" name="nombre" placeholder="Buscar campos.." />
+              <ul className="list-group">
 
-                        {currentTableData.map(info => {
-                            return (
-                                <li className="list-group-item" key={info._id}>
-                                    <p className="cliente-nombre"> {info.nombre}</p>
-                                    <br />
-                                </li>
-                            );
-                        })}
-                    </ul>
+                {currentTableData.map(info => {
+                  return (
+                    <li className="list-group-item" key={info._id}>
+
+                      <div className="row" >
+                        <div className="col-75">
+                        <p className="cliente-nombre"> {info.nombre}</p>
+                        </div>
+                        <div className="col-25">
+                          <i className="far fa-trash-alt fa-2x"></i>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
 
 
-                    <Pagination
-                        className="pagination-bar"
-                        currentPage={currentPage}
-                        totalCount={pedidosActivos.length}
-                        pageSize={PageSize}
-                        onPageChange={page => setCurrentPage(page)}
-                    />
-                </div>
-                :
-                <div className="img-load">
-                    <p className="no-pedidos">Aún no hay campos</p>
-                </div>
-            }
+              <Pagination
+                className="pagination-bar"
+                currentPage={currentPage}
+                totalCount={pedidosActivos.length}
+                pageSize={PageSize}
+                onPageChange={page => setCurrentPage(page)}
+              />
+            </div>
+            :
+            <div className="img-load">
+              <p className="no-pedidos">Aún no hay campos</p>
+            </div>
+          }
 
         </div>
 

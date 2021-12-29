@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import Logo from '../../images/icon_logo.jpg';
 import user from '../../images/user.png';
-import DropdownJ from '../DropdownJ/DropdownJ';
-import DropdownM from '../DropdownM/DropdownM';
-import Hamburger from '../Hamburger/Hamburger';
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Header = (props) => {
@@ -29,96 +27,35 @@ const Header = (props) => {
                 <ul className={` ${hamburgerOpen ? "show" : ""}`}>
 
                     <li className='img-nav'>
-                        <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />
+                    {props.credentials?.user.nombre &&    <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />}
                     </li>
                     <li>
-                        <Button destino="Clientes" url="/clientes" />
-                    </li>
-
-                    <li>
-                        <Button destino="Proyectos" url="/proyectos" />
-                    </li>
-                    <li>
-                        <Button destino="Campos" url="/campos" />
+                      {props.credentials?.user.nombre &&  <Button destino="Clientes" url="/clientes" />}
                     </li>
 
                     <li>
-                        <Button destino="LogIn" url="/login" />
+                     {props.credentials?.user.nombre &&   <Button destino="Proyectos" url="/proyectos" />}
+                    </li>
+                    <li>
+                    {props.credentials?.user.nombre && <Button destino="Campos" url="/campos" />}
                     </li>
 
                     <li>
-                        <Button destino="SingUp" url="/register" />
+                       {!props.credentials?.user.nombre &&  <Button destino="LogIn" url="/login" />}
+                    </li>
+
+                    <li>
+                       {!props.credentials?.user.nombre &&  <Button destino="SingUp" url="/register" />}
                     </li>
                     <li className='img-nav'>
-                        <img src={user} className="img-user" onClick={() => goToURL('/profile')} />
+                      {props.credentials?.user.nombre &&  <img src={user} className="img-user" onClick={() => goToURL('/profile')} />}
                     </li>
 
                 </ul>
             </div>
-
-            <style jsx>{`
-
-.fa-bars{
-
-    display: none;
-}
-  
-  .navigation ul.show {
-    transform: translateX(-20px);
-
-  }
-
-            @media (max-width: 923px){
- 
-  .navigation ul {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #2f3640;
-    width: 40%;
-    height: 100%;
-    opacity: 0.9;
-    padding: 2em;
-    transform: translateX(-500px);
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .navigation ul li {
-margin:auto;
-    opacity: 1;
-  }
-
-  .fa-bars{
-
-    display: block;
-    position: absolute;
-    top: 0.4em;
-    right:0.4em;
-    margin:auto;
-    color: #f7f3f3;
-    cursor: pointer;
-}
-
-.nav-button{
-
-    width: 100%;
-    opacity: 1;
-}
-
-.img-logo , .img-user{
-
-    margin: 2em;
-
-}
-
-
-}
-
-       
-
-`}</style>
         </div>
     )
 };
-export default Header;
+export default connect((state) => ({
+    credentials: state.credentials
+}))(Header);

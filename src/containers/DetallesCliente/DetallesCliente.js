@@ -18,7 +18,7 @@ const DetallesCliente = () => {
     setCurrentPage(1);
 
     // traePeliculas("/pedido");
-}, []);
+  }, []);
   let handleSubmit = (event) => {
     event.preventDefault();
 
@@ -28,13 +28,13 @@ const DetallesCliente = () => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return pedidosActivos.slice(firstPageIndex, lastPageIndex);
-}, [currentPage]);
+  }, [currentPage]);
 
   return (
     <div className="container container-campos">
-       <h1 className="mt-3">Datos cliente</h1>
+      <h1 className="mt-3">Datos cliente</h1>
       <div className="ctn-cliente">
-     
+
         <div className="ctn-crear-cliente basics_column">
           <div className="row">
             <div className="col-40">
@@ -60,9 +60,9 @@ const DetallesCliente = () => {
 
           <div className="ctn-crear-cliente basics_column">
 
-            
+
             <form className="form-campos basics_column" onSubmit={handleSubmit}>
-            <h2 className="mb-1 mt-1">Campos personalizados del cliente</h2>
+              <h2 className="mb-1 mt-1">Campos personalizados del cliente</h2>
               <div className="campos-col-50">
                 <select className="select-campo-jira">
                   <option value="Jira Cloud">Empresa</option>
@@ -78,10 +78,10 @@ const DetallesCliente = () => {
             </form>
           </div>
 
-      </div>
+        </div>
         <div className="ctn-ver-campo basics_column">
 
-    
+
           <h2 className="mb-1" >Lista de campos</h2>
           {currentTableData
             ?
@@ -93,9 +93,16 @@ const DetallesCliente = () => {
                 {currentTableData.map(info => {
                   return (
                     <li className="list-group-item" key={info._id}>
-                      <p className="cliente-nombre"> {info.campo}</p>
-                      <br />
-                      <p className="cliente-nombre"> {info.valor}</p>
+                      <div className="row" >
+                        <div className="col-75">
+                        <p className="cliente-nombre"> {info.campo}</p>
+                          <br />
+                          <p className="cliente-nombre"> {info.valor}</p>
+                        </div>
+                        <div className="col-25">
+                          <i className="far fa-trash-alt fa-2x"></i>
+                        </div>
+                      </div>
                     </li>
                   );
                 })}
@@ -120,7 +127,7 @@ const DetallesCliente = () => {
 
       </div>
     </div>
-   
+
   )
 };
 export default DetallesCliente;

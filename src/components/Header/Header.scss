@@ -40,6 +40,7 @@
   justify-content: center;
   align-items: center;
 
+
   }
 
 
@@ -47,7 +48,7 @@
     
   padding:0;
   display: flex;
- justify-content: space-between;
+ justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 100%;
@@ -60,6 +61,7 @@
 // margin:2em;
  
   }
+
 
   .fa-bars{
 
@@ -87,7 +89,24 @@
     transition: transform 0.5s ease-in-out;
   }
 
+   .navigation ul {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2f3640;
+    width: 40%;
+    height: 100%;
+    opacity: 0.9;
+    padding: 2em;
+    transform: translateX(-500px);
+    transition: transform 0.5s ease-in-out;
+  }
 
+  .navigation ul li {
+margin:auto;
+    opacity: 1;
+  }
 
   .fa-bars{
 
@@ -100,9 +119,16 @@
     cursor: pointer;
 }
 
+.nav-button{
+
+    width: 100%;
+    opacity: 1;
+}
 
 .img-logo , .img-user{
+
     margin: 2em;
+
 }
   
 
