@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState} from 'react';
+import clienteAxios from '../../config/axios';
 import { useNavigate } from 'react-router-dom';
 
 import useForm from "../../functions/hooks/useFromRegister";
@@ -13,19 +13,17 @@ const Register = () => {
     const submit = async () => {
 
 
-        // try {
-        //     debugger;
-        //      let res = await axios.post("https://api-tmc-pelis.herokuapp.com/api/signup", values);
-        //     setmsgError("Usuario registrado con éxito.");
-        //     setTimeout(() => {
-        //         history("/login");    
-        //     }, 2000);
+        try {
+             let res = await clienteAxios.post("api/register", values);
+            setmsgError("Usuario registrado con éxito.");
+            setTimeout(() => {
+                history("/login");    
+            }, 2000);
 
-        // } catch (error) {
-        //     //console.log(res.msg);
-        //     console.log(error);
-        //     setmsgError("Usuario no registrado.");
-        // }
+        } catch (error) {
+            console.log(error);
+            setmsgError("El usuario no se puede registrar.");
+        }
     };
 
     const { handleChange, handleSubmit, values, errors } = useForm(submit, validateSignUp);
@@ -42,13 +40,13 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
-                            name="name"
+                            name="nombre"
                             type="text"
                             placeholder="Nombre completo"
-                            value={values.name || ''}
+                            value={values.nombre || ''}
                             onChange={handleChange}
                         />
-                        {errors.name && <p className="error">{errors.name}</p>}
+                        {errors.nombre && <p className="error">{errors.nombre}</p>}
                     </div>
                 </div>
                 <div className="row">
@@ -57,13 +55,13 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
-                            name="email"
+                            name="correo"
                             type="email"
                             placeholder="correo"
-                            value={values.email || ''}
+                            value={values.correo || ''}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        {errors.correo && <p className="error">{errors.correo}</p>}
                     </div>
                 </div>
 
@@ -73,13 +71,13 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
-                            name="password"
+                            name="contraseya"
                             type="password"
                             placeholder="contraseña"
-                            value={values.password || ''}
+                            value={values.contraseya || ''}
                             onChange={handleChange}
                         />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        {errors.contraseya && <p className="error">{errors.contraseya}</p>}
                     </div>
                 </div>
 

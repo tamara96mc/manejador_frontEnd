@@ -18,22 +18,19 @@ const Jira_proyectos = (props) => {
     useEffect(() => {
 
         getClientes();
-        setCurrentPage(1);
 
     }, []);
 
-    useEffect(() => {
-        if(props.clientes)
+    // useEffect(() => {
+    //     if(props.clientes)
      
-        setAllClientes([props.clientes]);
+    //     setAllClientes([props.clientes]);
         
-    }, [props.clientes]);
+    // }, [props.clientes]);
 
     useEffect(() => {
       
-        console.log('clietnes' ,allClientes[0]?.clientes.length );
-
-
+        console.log('clietnes' ,allClientes );
         
     } );
 
@@ -54,7 +51,7 @@ const Jira_proyectos = (props) => {
             let res = await clienteAxios.get( "/cliente", config);
             props.dispatch({type:ALL_CLIENTES, payload:res.data});
             setAllClientes(res.data);
-            
+            setCurrentPage(1);
 
         } catch (error) {
             console.log(error);
@@ -81,7 +78,7 @@ const Jira_proyectos = (props) => {
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
         return allClientes.slice(firstPageIndex, lastPageIndex);
-    }, [currentPage, allClientes]);
+    }, [currentPage]);
 
     return (
         <div className="container basics_column">
@@ -114,7 +111,7 @@ const Jira_proyectos = (props) => {
                     <Pagination
                         className="pagination-bar"
                         currentPage={currentPage}
-                        totalCount={allClientes[0]?.clientes.length}
+                        totalCount={allClientes.length}
                         pageSize={PageSize}
                         onPageChange={page => setCurrentPage(page)}
                     />

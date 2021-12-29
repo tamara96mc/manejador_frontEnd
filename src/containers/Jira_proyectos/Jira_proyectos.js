@@ -6,7 +6,7 @@ import data from './data.json';
 
 const DetallesCliente = () => {
 
-  let PageSize = 5;
+  let PageSize = 3;
 
   const [currentPage, setCurrentPage] = useState(0);
 
