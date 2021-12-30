@@ -40,7 +40,6 @@ const Profile = (props) => {
         navigate("/login");
     }
 
-    
 
     
     return (

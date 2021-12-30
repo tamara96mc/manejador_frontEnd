@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
-import { ALL_CLIENTES,DELETE_CLIENTE } from '../../redux/types';
+import { ALL_CLIENTES,DELETE_CLIENTE, SELECT_CLIENTE } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 import Pagination from '../../components/Pagination/Pagination';
@@ -12,39 +12,34 @@ const Jira_proyectos = (props) => {
 
     const [currentPage, setCurrentPage] = useState(0);
 
-
+    const [inputValue, setInputValue] = useState();
     const [allClientes, setAllClientes] = useState([]);
-
-    useEffect(() => {
-
-        getClientes();
-        
-
-    }, []);
-
-    useEffect(() => {
-        if(props.clientes)
-     
-        setAllClientes(props.clientes.clientes);
-        console.log('props' , props.clientes.clientes.length)
-        debugger
-        
-    }, [props.clientes.clientes]);
-
-    useEffect(() => {
-      
-        console.log('clietnes' ,allClientes );
-
-
-        
-    } );
-
 
     const history = useNavigate();
 
     const gotoURL = (url) => {
         history(url);
     }
+
+    const verCliente = (select_cliente) => {
+
+        props.dispatch({type:SELECT_CLIENTE, payload:select_cliente});
+        history("/detallesCliente");
+    }
+
+    useEffect(() => {
+
+        getClientes();
+
+    }, []);
+
+    useEffect(() => {
+     
+        setAllClientes(props.clientes.clientes);
+
+    }, [props.clientes.clientes]);
+
+
     const getClientes = async () => {
 
         try {
@@ -73,11 +68,29 @@ const Jira_proyectos = (props) => {
             };
             let res = await clienteAxios.delete( `/cliente/${telefono}`, config);
             props.dispatch({type:DELETE_CLIENTE, payload:telefono});
+            setCurrentPage(1);
+            setInputValue('');
 
         } catch (error) {
             console.log(error);
         }
     };
+    
+    const loadClientes = () => {
+      setAllClientes(props.clientes.clientes);
+      setInputValue('');
+    }
+
+    const writefilm = (e) => {
+
+        setInputValue(e.target.value);
+
+        const filtered = allClientes.filter(cliente => {
+            return cliente.nombre.toLowerCase().match(e.target.value.toLowerCase());
+        })
+        console.log("filtered2:", filtered)
+        setAllClientes(filtered);
+    }
 
     const currentTableData = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * PageSize;
@@ -93,14 +106,17 @@ const Jira_proyectos = (props) => {
                 ?
 
                 <div className="">
-                     <input type="text" id="nombre" name="nombre" placeholder="Buscar cliente.." />
+                    <div className="input-buscador basics_row">
+                     <input type="text" name="buscardor" value={inputValue}  onChange={writefilm} placeholder="Buscar cliente.."  />
+                     <i className="fa fa-remove fa-2x" onClick={loadClientes}></i>
+                     </div>
                     <ul className="list-group">
 
                         {currentTableData.map(info => {
                             return (
                                 <li className="list-group-item"  key={info.telefono}>
                                     <div className="row" >
-                                        <div className="col-75" onClick={() => gotoURL("/detallesCliente")}>
+                                        <div className="col-75" onClick={() => verCliente(info)}>
                                         <p className="cliente-nombre"><i class="fa fa-user"></i> {info.nombre}</p>
                                     <br />
                                     <p className="cliente-tlf"><i class="fa fa-whatsapp"></i>{info.telefono}</p>

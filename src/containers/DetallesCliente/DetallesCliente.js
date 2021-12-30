@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { UPDATE_CLIENTE } from '../../redux/types';
+import clienteAxios from '../../config/axios';
 import Pagination from '../../components/Pagination/Pagination';
 import data from './data.json';
 
-const DetallesCliente = () => {
+const DetallesCliente = (props) => {
 
-  let PageSize = 5;
+  let PageSize = 3;
 
+  const [clienteData, setclienteData] = useState();
+  const [msgError, setmsgError] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-
-
   const [pedidosActivos, setPedidosActivos] = useState([]);
+
+  const history = useNavigate();
 
   useEffect(() => {
 
@@ -19,8 +25,52 @@ const DetallesCliente = () => {
 
     // traePeliculas("/pedido");
   }, []);
-  let handleSubmit = (event) => {
-    event.preventDefault();
+
+  useEffect(() => {
+
+    setclienteData(props.clientes.select_cliente);
+
+}, [props.clientes.select_cliente]);
+
+const handleChange = (e) => {
+  //Función encargada de bindear el hook con los inputs.
+  setclienteData({ ...clienteData, [e.target.name]: e.target.value });
+}
+
+const handleSubmit = async (e) => {
+
+    e.preventDefault();
+    debugger
+    try {
+
+      let token = props.credentials.token;
+      //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
+      let config = {
+          headers: { Authorization: `Bearer ${token}` }
+      };
+
+      const cliente_nombre = {
+        nombre : clienteData.nombre
+      }
+      
+      let res = await clienteAxios.put(`/cliente/${props.clientes.select_cliente.telefono}`, cliente_nombre, config);
+      setmsgError(`Cliente actualizado`);
+
+      
+      const updated_cliente = {
+        nombre : clienteData.nombre,
+        telefono :props.clientes.select_cliente.telefono
+      }
+
+      setTimeout(() => {
+         props.dispatch({type:UPDATE_CLIENTE, payload:updated_cliente});
+          history("/clientes");   
+      }, 2000);
+
+  } catch (error) {
+      console.log(error);
+      setmsgError(`El cliente no ha podido ser actializado`);
+  }
 
   }
 
@@ -29,6 +79,7 @@ const DetallesCliente = () => {
     const lastPageIndex = firstPageIndex + PageSize;
     return pedidosActivos.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
+
 
   return (
     <div className="container container-campos">
@@ -41,27 +92,19 @@ const DetallesCliente = () => {
               <label> <i class="fa fa-user"></i>Nombre</label>
             </div>
             <div className="col-75">
-              <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente..." />
+              <input type="text" id="nombre" name="nombre" placeholder="Nombre del cliente..." value={clienteData?.nombre || ''} onChange={handleChange} />
             </div>
           </div>
-          <div className="row">
-            <div className="col-40">
-              <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
-            </div>
-            <div className="col-75">
-              <input type="text" id="nombre" name="nombre" placeholder="Teléfono del cliente..." />
-            </div>
-          </div>
-
-          <div className="basics_row mt-2 mb-2">
-            <button className="send-button btn-campos-guardar " type="submit">Actualizar</button>
+          <div className="basics_column mt-2 mb-2">
+          <div className="info">{msgError}</div>
+            <button className="send-button btn-campos-guardar" type="submit" onClick={e => handleSubmit(e)}>Actualizar</button>
           </div>
 
 
           <div className="ctn-crear-cliente basics_column">
 
 
-            <form className="form-campos basics_column" onSubmit={handleSubmit}>
+            <form className="form-campos basics_column" >
               <h2 className="mb-1 mt-1">Campos personalizados del cliente</h2>
               <div className="campos-col-50">
                 <select className="select-campo-jira">
@@ -130,4 +173,7 @@ const DetallesCliente = () => {
 
   )
 };
-export default DetallesCliente;
+export default connect((state) => ({
+  credentials: state.credentials,
+  clientes: state.clientes
+}))(DetallesCliente);
