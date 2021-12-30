@@ -32,9 +32,7 @@ function App() {
           <Route  path="/campos" element={<Jira_campos/>} />
         </Routes>
         </div>
-        <div className='prueba'>
 
-        </div>
         <Footer/>
       </BrowserRouter>
     </div>

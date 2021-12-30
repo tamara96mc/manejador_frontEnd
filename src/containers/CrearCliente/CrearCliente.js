@@ -21,8 +21,6 @@ const CrearCliente = (props) => {
         "nombre": newCliente.nombre,
         "jiraId": 4
       }
-
-      debugger
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
       let config = {
