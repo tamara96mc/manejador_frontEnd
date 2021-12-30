@@ -18,20 +18,22 @@ const Jira_proyectos = (props) => {
     useEffect(() => {
 
         getClientes();
-        setCurrentPage(1);
+        
 
     }, []);
 
     useEffect(() => {
         if(props.clientes)
      
-        setAllClientes([props.clientes]);
+        setAllClientes(props.clientes.clientes);
+        console.log('props' , props.clientes.clientes.length)
+        debugger
         
-    }, [props.clientes]);
+    }, [props.clientes.clientes]);
 
     useEffect(() => {
       
-        console.log('clietnes' ,allClientes[0]?.clientes.length );
+        console.log('clietnes' ,allClientes );
 
 
         
@@ -54,7 +56,7 @@ const Jira_proyectos = (props) => {
             let res = await clienteAxios.get( "/cliente", config);
             props.dispatch({type:ALL_CLIENTES, payload:res.data});
             setAllClientes(res.data);
-            
+            setCurrentPage(1);
 
         } catch (error) {
             console.log(error);
@@ -81,7 +83,7 @@ const Jira_proyectos = (props) => {
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
         return allClientes.slice(firstPageIndex, lastPageIndex);
-    }, [currentPage, allClientes]);
+    }, [currentPage,allClientes]);
 
     return (
         <div className="container basics_column">
@@ -94,7 +96,7 @@ const Jira_proyectos = (props) => {
                      <input type="text" id="nombre" name="nombre" placeholder="Buscar cliente.." />
                     <ul className="list-group">
 
-                        {currentTableData[0]?.clientes.map(info => {
+                        {currentTableData.map(info => {
                             return (
                                 <li className="list-group-item"  key={info.telefono}>
                                     <div className="row" >
@@ -114,7 +116,7 @@ const Jira_proyectos = (props) => {
                     <Pagination
                         className="pagination-bar"
                         currentPage={currentPage}
-                        totalCount={allClientes[0]?.clientes.length}
+                        totalCount={allClientes.length}
                         pageSize={PageSize}
                         onPageChange={page => setCurrentPage(page)}
                     />
