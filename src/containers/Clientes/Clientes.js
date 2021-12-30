@@ -100,7 +100,7 @@ const Jira_proyectos = (props) => {
 
     return (
         <div className="container basics_column">
-            <h1 className="mb-2" >Lista de clientes</h1>
+            <h1 className="mb-2 mt-3" >Lista de clientes</h1>
 
             {currentTableData
                 ?

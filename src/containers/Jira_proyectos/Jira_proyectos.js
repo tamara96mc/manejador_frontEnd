@@ -34,14 +34,14 @@ const DetallesCliente = () => {
 
   return (
     <div className="container container-campos">
-      <h1 className="mb-4 mt-3">Proyectos de Jira</h1>
+      <h1 className="mb-2 mt-3">Proyectos de Jira</h1>
 
       <div className="ctn-campo basics_row ">
         <div className="ctn-crear-campo basics_column">
 
           <h2 className="mb-1">Crear proyecto</h2>
           <form className="form-campos basics_column" onSubmit={handleSubmit}>
-            <p className="p-info-campos">En esta pantalla podemos configurar los proyectos de Jira, <br /> los cuales pueden ser elegidos cuando crear un ticket por WhatsApp <i class="fa fa-whatsapp" aria-hidden="true"></i> </p>
+            <p className="p-info-campos">En esta pantalla podemos configurar los proyectos de Jira, <br /> los cuales pueden ser elegidos cuando crear un ticket por WhatsApp. </p>
 
             <div className="campos-col-50">
               <input className="input-campos" type="text" id="id" name="id" placeholder="Nombre del proyecto" v />
