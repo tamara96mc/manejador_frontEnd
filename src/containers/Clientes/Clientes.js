@@ -5,7 +5,7 @@ import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 import Pagination from '../../components/Pagination/Pagination';
 
-const Jira_proyectos = (props) => {
+const Clientes = (props) => {
 
 
     let PageSize = 5;
@@ -152,4 +152,4 @@ export default connect((state) => ({
     // jiras: state.jiras,
     credentials: state.credentials,
     clientes: state.clientes
-  }))(Jira_proyectos);
+  }))(Clientes);
