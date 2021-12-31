@@ -27,7 +27,7 @@ const Header = (props) => {
                 <ul className={` ${hamburgerOpen ? "show" : ""}`}>
 
                     <li className='img-nav'>
-                    {props.credentials?.user.nombre &&    <img src={Logo} className="img-logo" onClick={() => goToURL('/jiras')} />}
+                    {props.credentials?.user.nombre &&    <img src={Logo} className="img-logo" onClick={() => goToURL('/')} />}
                     </li>
                     <li>
                       {props.credentials?.user.nombre &&  <Button destino="Clientes" url="/clientes" />}

@@ -3,12 +3,12 @@ import { save, load } from "redux-localstorage-simple";
 import reducer from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(
-	save({ states: ["credentials" ,"clientes"] })
+	save({ states: ["credentials" ,"clientes", "proyectos" , "campos"] })
 )(createStore);
 
 const store = createStoreWithMiddleware(
     reducer,
-    load({ states: ["credentials" ,"clientes"] }),
+    load({ states: ["credentials" ,"clientes", "proyectos" , "campos"] }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
         trace: true,
     })

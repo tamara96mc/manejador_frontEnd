@@ -48,7 +48,8 @@ $colBlanco2 : rgb(255, 255, 255);
 
 .container {
     width: 100%;
-    min-height: 67em;
+    min-height: 100%;
+    // max-height: 100%;
     font-size: 12px;
     background-color: $colAzul;
     color: $colBlanco2;
