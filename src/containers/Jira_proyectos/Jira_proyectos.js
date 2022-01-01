@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { ALL_PROYECTOS, DELETE_PROYECTO, NEW_PROYECTO , UPDATE_PROYECTO, SELECT_PROYECTO } from '../../redux/types';
+import { ALL_PROYECTOS, DELETE_PROYECTO, NEW_PROYECTO , UPDATE_PROYECTO, NO_UPDATE_PROYECTO , SELECT_PROYECTO } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 import Pagination from '../../components/Pagination/Pagination';
@@ -158,6 +158,14 @@ const Jira_proyectos = (props) => {
 
   }
 
+  const NO_updateProyecto = async (e) => {
+
+    props.dispatch({ type: NO_UPDATE_PROYECTO, payload: '' });
+    setSelectProyecto('');
+    setNewProyecto('');
+
+  }
+
   const loadProyectos = () => {
     setallProyectos(props.proyectos.proyectos);
     setInputValue('');
@@ -186,8 +194,9 @@ const Jira_proyectos = (props) => {
       <div className="ctn-campo basics_row ">
         <div className="ctn-crear-campo basics_column">
 
-        {selectProyecto  ? <h2 className="mb-1">Actualizar proyecto</h2> : <h2 className="mb-1">Crear proyecto</h2>}
+        
           <form className="form-campos basics_column">
+          {selectProyecto  ? <h2 className="mb-1">Actualizar proyecto</h2> : <h2 className="mb-1">Crear proyecto</h2>}
             <p className="p-info-campos">En esta pantalla podemos configurar los proyectos de Jira, <br /> los cuales pueden ser elegidos cuando crear un ticket por WhatsApp. </p>
 
             <div className="campos-col-50">
@@ -199,14 +208,15 @@ const Jira_proyectos = (props) => {
             </div>
 
             {selectProyecto ?
-              <>
-                {/* <div className="info">{msgError}</div> */}
+              
+                <div  className="basics_row_space row_to_column mt-3">
                 <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateProyecto(e)}>Actualizar</button>
-                </>
+                <button className="send-button btn-campos-guardar" type="submit" onClick={e => NO_updateProyecto(e)}>Cancelar</button>
+                </div>
               :
               <>
                 {/* <div className="info">{msgError}</div> */}
-                <button className="send-button btn-campos-guardar" type="submit" onClick={e => addProyecto(e)}>Guardar</button>
+                <button className="send-button btn-campos-guardar mt-3" type="submit" onClick={e => addProyecto(e)}>Guardar</button>
               
               </>
             }

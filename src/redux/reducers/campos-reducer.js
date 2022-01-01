@@ -1,4 +1,4 @@
-import { NEW_CAMPO, DELETE_CAMPO, ALL_CAMPOS, UPDATE_CAMPO, SELECT_CAMPO } from '../types';
+import { NEW_CAMPO, DELETE_CAMPO, ALL_CAMPOS, UPDATE_CAMPO, NO_UPDATE_CAMPO, SELECT_CAMPO } from '../types';
 
 const initialState = {
     campos: '',
@@ -29,6 +29,11 @@ const camposReducer = (state = initialState, action) => {
                 ...state,
                 select_campo: '',
                 campos: state.campos.map(campo => campo.id === action.payload.id ? action.payload : campo)
+            }
+        case NO_UPDATE_CAMPO:
+            return {
+                ...state,
+                select_campo: ''
             }
         case SELECT_CAMPO:
             return {

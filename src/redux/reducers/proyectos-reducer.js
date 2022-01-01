@@ -1,4 +1,4 @@
-import { NEW_PROYECTO, DELETE_PROYECTO, ALL_PROYECTOS, UPDATE_PROYECTO, SELECT_PROYECTO } from '../types';
+import { NEW_PROYECTO, DELETE_PROYECTO, ALL_PROYECTOS, UPDATE_PROYECTO, NO_UPDATE_PROYECTO, SELECT_PROYECTO } from '../types';
 
 const initialState = {
 
@@ -30,6 +30,11 @@ const proyectosReducer = (state = initialState, action) => {
                 ...state,
                 select_proyecto: '',
                 proyectos: state.proyectos.map(proyecto => proyecto.id === action.payload.id ? action.payload : proyecto)
+            }
+         case NO_UPDATE_PROYECTO:
+            return {
+                ...state,
+                select_proyecto: ''
             }
         case SELECT_PROYECTO:
             return {

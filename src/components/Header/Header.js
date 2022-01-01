@@ -43,7 +43,9 @@ const Header = (props) => {
                     <li>
                        {!props.credentials?.user.nombre &&  <Button destino="LogIn" url="/login" />}
                     </li>
-
+                    <li className='img-nav'>
+                    {!props.credentials?.user.nombre &&    <img src={Logo} className="img-logo" />}
+                    </li>
                     <li>
                        {!props.credentials?.user.nombre &&  <Button destino="SingUp" url="/register" />}
                     </li>
