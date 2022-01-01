@@ -12,6 +12,15 @@ $colNegro4 : rgb(194, 122, 122);
 $colBlanco1 : #f7f3f3;
 $colBlanco2 : rgb(255, 255, 255);
 
+.fa-id-card-alt, .fa-sign-in-alt ,.fa-clipboard-list{
+
+  display: block;
+  width: 1em;
+  margin-left: auto;
+  margin-right:auto;
+  color: $colBlanco1;
+}
+
 .basics_column {
     display: flex;
     flex-direction: column;
@@ -107,7 +116,7 @@ h3{
     height: 10%;
     width: 40%;
     margin: 1em;
-    padding: 0.5em 0 0.5em 0 ;
+    padding: 0.5em ;
     border-radius: 0.2em;
     transition: 0.4s;
     cursor: pointer;
@@ -307,6 +316,18 @@ input , textarea , .input-campos{
 
 
 @media screen and (max-width: 600px) {
+
+  .row_to_column{
+
+    flex-direction: column;
+
+    .btn-campos-guardar{
+
+      width: 100%;
+    }
+ 
+
+  }
     .row{
         display: flex;
       flex-direction: column;
@@ -322,7 +343,7 @@ input , textarea , .input-campos{
         text-align: start;
     }
 
-    .campos-col-40, .campos-col-50 , .campos-col-10, .col-60 {
+    .campos-col-40, .campos-col-50 , .campos-col-10, .col-60 ,.col-50 {
       float: left;
       width: 100%;
       margin-top: 6px;

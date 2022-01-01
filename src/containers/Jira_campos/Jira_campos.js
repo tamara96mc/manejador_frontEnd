@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { ALL_CAMPOS, DELETE_CAMPO, NEW_CAMPO , UPDATE_CAMPO, SELECT_CAMPO } from '../../redux/types';
+import { ALL_CAMPOS, DELETE_CAMPO, NEW_CAMPO , UPDATE_CAMPO, NO_UPDATE_CAMPO, SELECT_CAMPO } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 import Pagination from '../../components/Pagination/Pagination';
@@ -158,6 +158,14 @@ const Jira_campos = (props) => {
 
   }
 
+  const NO_updateCampo = async (e) => {
+
+    props.dispatch({ type: NO_UPDATE_CAMPO, payload: '' });
+    setSelectCampo('');
+    setNewCampo('');
+
+  }
+
   const loadCampos = () => {
     setallCampos(props.campos.campos);
     setInputValue('');
@@ -185,10 +193,9 @@ const Jira_campos = (props) => {
       <h1 className="mb-4 mt-3">Campos personalizados de Jira</h1>
 
       <div className="ctn-campo">
-        <div className="ctn-crear-campo basics_column">
-
-        {selectCampo  ? <h2 className="mb-1">Actualizar campo</h2> : <h2 className="mb-1">Crear campo</h2>}
+        <div className="ctn-crear-campo basics_column mb-4">
           <form className="form-campos basics_column">
+          {selectCampo  ? <h2 className="mb-1">Actualizar campo</h2> : <h2 className="mb-1">Crear campo</h2>}
             <p className="p-info-campos">En esta pantalla podemos configurar los campos personalidos de Jira, los cuales pueden ser utilizados en los clientes para añadir más información al ticket en su creación. </p>
 
             <div className="campos-col-50">
@@ -199,10 +206,10 @@ const Jira_campos = (props) => {
               <input className="input-campos" type="text" name="nombre" placeholder="Nombre del campo" value={newCampo?.nombre || selectCampo?.nombre || ''} onChange={handleChange} />
             </div>
             {selectCampo ?
-              <>
-                {/* <div className="info">{msgError}</div> */}
-                <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateCampo(e)}>Actualizar</button>
-                </>
+                  <div  className="basics_row_space row_to_column mt-3">
+                  <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateCampo(e)}>Actualizar</button>
+                  <button className="send-button btn-campos-guardar" type="submit" onClick={e => NO_updateCampo(e)}>Cancelar</button>
+                  </div>
               :
               <>
                 {/* <div className="info">{msgError}</div> */}

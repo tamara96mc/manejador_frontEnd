@@ -1,17 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Button from '../Button/Button';
-import Logo from '../../images/icon_logo.jpg';
-import DropdownJ from '../DropdownJ/DropdownJ';
-import DropdownM from '../DropdownM/DropdownM';
-import Hamburger from '../Hamburger/Hamburger';
+import React, { useState } from 'react';
 
 const Footer = (props) => {
-
-    const [hamburgerOpen, setHamburgerOpen] = useState(false);
-
-    const toggleHamburger = () => {
-        setHamburgerOpen(!hamburgerOpen)
-    }
 
     return (
       

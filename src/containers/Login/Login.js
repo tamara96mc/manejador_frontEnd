@@ -35,7 +35,8 @@ const Login = (props) => {
 
         <div className="container">
             <form className='form-user' >
-                <h1 className='mb-2'>LogIn</h1>
+                <h1 className='mb-1'>LogIn</h1>
+                <i class="fas fa-sign-in-alt fa-6x"></i>
                 <div className="row">
                     <div className="col-40">
                    <label ><i class="fa fa-user"></i> Correo</label>
@@ -71,7 +72,7 @@ const Login = (props) => {
                 </div>
                 <div className="basics_column mt-3">
                     <div className="info">{msgError}</div>
-                    <div className="send-button" onClick={handleSubmit}>Entrar</div>
+                    <button className="send-button" onClick={handleSubmit}>Entrar</button>
                 </div>
             </form>
         </div>

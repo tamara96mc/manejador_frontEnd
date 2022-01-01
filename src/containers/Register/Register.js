@@ -33,7 +33,9 @@ const Register = () => {
 
         <div className="container">
             <form className='form-user' >
-                <h1 className='mb-3'  >Nuevo usuario</h1>
+            
+                <h1 className='mb-1'> Nuevo usuario</h1>
+                <i class="fas fa-clipboard-list fa-6x"></i>
                 <div className="row">
                     <div className="col-40">
                         <label> <i class="fa fa-user"></i>Nombre</label>
@@ -83,7 +85,7 @@ const Register = () => {
 
                 <div className="basics_column mt-4">
                     <div className="info">{msgError}</div>
-                    <div className="send-button" onClick={handleSubmit}>Crear usuario</div>
+                    <button className="send-button" onClick={handleSubmit}>Crear usuario</button>
                 </div>
     
             </form>
