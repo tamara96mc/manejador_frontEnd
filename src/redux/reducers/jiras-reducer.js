@@ -11,7 +11,7 @@ const jiraReducer = (state = initialState, action) => {
         case NEW_JIRA:
             return {
                 ...state,
-                jira: [action.payload, ...state.jira],
+                jira: action.payload,
             };
         case UPDATE_JIRA:
             return {

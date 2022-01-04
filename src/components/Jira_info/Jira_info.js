@@ -22,6 +22,11 @@ const Jira_info = (props) => {
   }, [props.jiras.jira]);
 
 
+  useEffect(() => {
+
+    console.log('jira ->', jira)
+
+  },);
 
 
   const addJira = async (e) => {
@@ -30,7 +35,7 @@ const Jira_info = (props) => {
 
     try {
 
-      const jira = {
+      const new_jira = {
         "nombre": jira.nombre,
         "url_jira": jira.url_jira,
         "usuario": jira.usuario,
@@ -38,17 +43,20 @@ const Jira_info = (props) => {
         "telefono": jira.telefono,
         "tipo_jira": jira.tipo_jira,
         "userId" : props.credentials.user.id
-
       }
+
+
+      debugger
+
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
       let config = {
         headers: { Authorization: `Bearer ${token}` }
       };
 
-      let res = await clienteAxios.post(`/jira`, jira, config);
+      let res = await clienteAxios.post(`/jira`, new_jira, config);
 
-      props.dispatch({ type: NEW_JIRA, payload: jira });
+      props.dispatch({ type: NEW_JIRA, payload: new_jira });
 
     } catch (error) {
       console.log(error)
@@ -57,7 +65,7 @@ const Jira_info = (props) => {
 
   const handleChange = (e) => {
 
-      setJira({ ...setJira, [e.target.name]: e.target.value });
+      setJira({ ...jira, [e.target.name]: e.target.value });
   
   }
 
@@ -70,18 +78,22 @@ const Jira_info = (props) => {
       let config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      let res = await clienteAxios.get("/jira", config);
-      props.dispatch({ type: UPDATE_JIRA, payload: res.data });
+      let res = await clienteAxios.get(`/jira/userId/${props.credentials.user.id}`, config);
+
+      props.dispatch({ type: NEW_JIRA, payload: res.data[0] });
 
       setJira(res.data);
 
     } catch (error) {
       console.log(error);
     }
+
   };
 
 
   const updateJira = async (e) => {
+
+   
 
     e.preventDefault();
     try {
@@ -102,9 +114,10 @@ const Jira_info = (props) => {
         "userId" : props.credentials.user.id
       }
 
-      let res = await clienteAxios.put(`/proyecto/${props.proyectos.jira.id}`, updatedJira, config);
+      debugger
+      let res = await clienteAxios.put(`/jira/${props.jiras.jira.id}`, updatedJira, config);
  
-
+  
       props.dispatch({ type: UPDATE_JIRA, payload: updatedJira });
   
     } catch (error) {
@@ -149,7 +162,7 @@ const Jira_info = (props) => {
         </div>
         <div  className="row">
           <div  className="col-40">
-            <label> <i class="fa fa-user"></i>Usuario</label>
+            <label> <i class="fa fa-envelope"></i>Correo</label>
           </div>
           <div  className="col-60">
             <input type="text" id="usuario" name="usuario" value={jira?.usuario || ''} onChange={handleChange} placeholder="Usuario jira.." />
@@ -158,7 +171,7 @@ const Jira_info = (props) => {
 
         <div  className="row">
           <div  className="col-40">
-            <label> <i class="fa fa-key"></i>Contraseña</label>
+            <label> <i class="fa fa-key"></i>API TOKEN</label>
           </div>
           <div  className="col-60">
             <input type="text"name= "contraseya" value={jira?.contraseya || ''} onChange={handleChange} placeholder="Contraseña de usuario.." />
