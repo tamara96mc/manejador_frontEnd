@@ -19,7 +19,7 @@ const CrearCliente = (props) => {
       const cliente = {
         "telefono": newCliente.telefono,
         "nombre": newCliente.nombre,
-        "jiraId": 4
+        "jiraId": props.jiras.jira.id
       }
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
@@ -71,6 +71,6 @@ const CrearCliente = (props) => {
   )
 };
 export default connect((state) => ({
-  // jiras: state.jiras,
+  jiras: state.jiras,
   credentials: state.credentials
 }))(CrearCliente);

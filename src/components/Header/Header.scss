@@ -68,29 +68,17 @@
 }
   
   .navigation ul.show {
+    margin: 0;
     transform: translateX(-20px);
 
   }
 
             @media (max-width: 923px){
  
-  .navigation ul {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #2f3640;
-    width: 40%;
-    height: 100%;
-    opacity: 0.9;
-    padding: 2em;
-    transform: translateX(-500px);
-    transition: transform 0.5s ease-in-out;
-  }
 
    .navigation ul {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: #2f3640;

@@ -51,7 +51,7 @@ const Jira_campos = (props) => {
       const campo = {
         "custom_field": newCampo.custom_field,
         "nombre": newCampo.nombre,
-        "jiraId": 4
+        "jiraId": props.jiras.jira.id
       }
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
@@ -134,7 +134,7 @@ const Jira_campos = (props) => {
       const updatedCampo = {
         custom_field: selectCampo.custom_field,
         nombre: selectCampo.nombre,
-        jiraId: 4
+        jiraId: props.jiras.jira.id
       }
 
       let res = await clienteAxios.put(`/campo/${props.campos.select_campo.id}`, updatedCampo, config);
@@ -144,7 +144,7 @@ const Jira_campos = (props) => {
         id: props.campos.select_campo.id,
         custom_field: selectCampo.custom_field,
         nombre: selectCampo.nombre,
-        jiraId: 4
+        jiraId: props.jiras.jira.id
       }
 
       props.dispatch({ type: UPDATE_CAMPO, payload: updatedCampoID });

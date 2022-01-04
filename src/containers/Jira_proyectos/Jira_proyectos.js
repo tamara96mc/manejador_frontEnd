@@ -51,7 +51,7 @@ const Jira_proyectos = (props) => {
       const proyecto = {
         "nombre": newProyecto.nombre,
         "tipo": newProyecto.tipo,
-        "jiraId": 4
+        "jiraId": props.jiras.jira.id
       }
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
@@ -144,7 +144,7 @@ const Jira_proyectos = (props) => {
         id:props.proyectos.select_proyecto.id,
         nombre: selectProyecto.nombre,
         tipo: selectProyecto.tipo,
-        jiraId: 4
+        jiraId: props.jiras.jira.id
       }
 
       props.dispatch({ type: UPDATE_PROYECTO, payload: updatedProyectoID });
