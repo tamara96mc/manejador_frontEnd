@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import img_wp from "../../images/info_whatapp.PNG"
-import clienteAxios from '../../config/axios';
+import axios from 'axios';
 import { connect } from 'react-redux';
 
 const Jira_QR = (props) => {
@@ -23,7 +23,7 @@ const Jira_QR = (props) => {
         "telefono": props.jiras.jira.telefono,
       }
       debugger
-      let res = await clienteAxios.post(`/manejador/createBot`, manejador, config);
+      let res = await axios.post(`https://bot-jira-api.herokuapp.com/manejador/createBot`, manejador, config);
 
       console.log('res'.res);
 
