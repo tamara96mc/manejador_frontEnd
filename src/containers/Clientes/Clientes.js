@@ -48,7 +48,8 @@ const Clientes = (props) => {
             let config = {
                 headers: { Authorization: `Bearer ${token}` }
             };
-            let res = await clienteAxios.get( "/cliente", config);
+            debugger
+            let res = await clienteAxios.get( `/cliente/jiraId/${props.jiras.jira.id}`, config);
             props.dispatch({type:ALL_CLIENTES, payload:res.data});
             setAllClientes(res.data);
             setCurrentPage(1);
@@ -151,5 +152,6 @@ const Clientes = (props) => {
 export default connect((state) => ({
     // jiras: state.jiras,
     credentials: state.credentials,
-    clientes: state.clientes
+    clientes: state.clientes,
+    jiras: state.jiras
   }))(Clientes);

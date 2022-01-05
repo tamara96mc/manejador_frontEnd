@@ -45,21 +45,24 @@ const Jira_QR = (props) => {
 
       <h1>Vincular con WhatsApp</h1>
       <div className="row row-qr">
-        <div className="col-50">
-          <p className="p-info-manejador"> <b>Si aún no ha vinculado ningún dispositivo: </b> <br/> <br/> Para poder vincular el número de teléfono al manejador de JIRA tienes que pulsar el botón de <b>* Generar QR *</b> y después escanear el código con tu aplicacion de WhatsApp en: <br /> <i>Dispositivos vinculados {'>'} Vincular un dispositivo</i>  <br/> <br/> <b>Aqui puedes comprobar si ya está vinculado: </b> <br/> <br/> Si ya está vinculado no se generará un nuevo QR hasta que no se cierre la sesión.</p>
-          <img  className="img-info-manejador mb-2" src={img_wp} />
-        </div>
-        <div className="col-50 card-img">
+        <div className="col-100">
+          <p className="p-info-manejador"> <b>Si aún no ha vinculado ningún dispositivo: </b> <br/> <br/> Para poder vincular el número de teléfono al manejador de JIRA tienes que pulsar el botón de <b>* Generar QR *</b> y después escanear el código con tu aplicacion de WhatsApp en: <br /> <i>Dispositivos vinculados {'>'} Vincular un dispositivo</i> 
+          </p>
           {qr ? 
-          <img src={qr} /> :
+          <img className='img-qr-code mt-1' src={qr} /> :
           <div className='qr-code'>
           </div> }
-
         </div>
       </div>
       <div className="row row-qr">
         <div className="col-100">
           <button className="send-button btn-qr" onClick={() => getQR()}>Generar QR</button>
+        </div>
+      </div>
+      <div className="row row-qr">
+        <div className="col-100">
+          <p className="p-info-manejador"> <b>Aqui puedes comprobar si ya está vinculado: </b> <br/> <br/> Si ya está vinculado no se generará un nuevo QR hasta que no se cierre la sesión.</p>
+          <img  className="img-info-manejador mb-2" src={img_wp} />
         </div>
       </div>
     </div>

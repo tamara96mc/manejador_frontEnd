@@ -88,7 +88,7 @@ const Jira_campos = (props) => {
       let config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      let res = await clienteAxios.get("/campo", config);
+      let res = await clienteAxios.get(`/campo/jiraId/${props.jiras.jira.id}`, config);
       props.dispatch({ type: ALL_CAMPOS, payload: res.data });
 
       setallCampos(res.data);

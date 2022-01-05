@@ -2,35 +2,35 @@
 
   
 .card-img>img{
-    display: flex;
-    width:50%;
-    margin: auto;
+  display: flex;
+  width:50%;
+  margin: auto;
 
 }
 
 .btn-qr{
- 
-  width: 10em;
-  font-size: large;
-  margin: auto;
+
+width: 10em;
+font-size: large;
+margin: auto;
 
 }
 
 .row-qr{
 
-  margin: 2em 0 2em 0;
+margin: 2em 0 2em 0;
 
 }
- 
+
 .p-info-manejador{
 
-  font-size: large;
-  line-height: 1.5;
+font-size: large;
+line-height: 1.5;
 
 }
 
 .img-info-manejador{
-  width: 100%;
+width: 100%;
 }
 
 .input-tlf{
@@ -40,11 +40,18 @@ width: 30em;
 
 .qr-code {
 
-  width: 15em;
-  height: 15em;
-  text-align: center;
+width: 15em;
+height: 15em;
+text-align: center;
+margin: auto;
+font-size: large;
+border: 0.05em solid $colBlanco2;
+border-style: dashed;
+}
+
+.img-qr-code{
+
+  display: flex;
+  width: 30em;
   margin: auto;
-  font-size: large;
-  border: 0.05em solid $colBlanco2;
-  border-style: dashed;
 }
