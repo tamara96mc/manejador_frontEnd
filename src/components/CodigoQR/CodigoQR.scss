@@ -29,7 +29,22 @@
 
 }
 
+.img-info-manejador{
+  width: 100%;
+}
+
 .input-tlf{
 
-width: 15em;
+width: 30em;
+}
+
+.qr-code {
+
+  width: 15em;
+  height: 15em;
+  text-align: center;
+  margin: auto;
+  font-size: large;
+  border: 0.05em solid $colBlanco2;
+  border-style: dashed;
 }
