@@ -88,7 +88,7 @@ const Jira_proyectos = (props) => {
       let config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      let res = await clienteAxios.get("/proyecto", config);
+      let res = await clienteAxios.get(`/proyecto/jiraId/${props.jiras.jira.id}`, config);
       props.dispatch({ type: ALL_PROYECTOS, payload: res.data });
 
       setallProyectos(res.data);
