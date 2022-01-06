@@ -4,6 +4,7 @@ import clientes from './clientes-reducer';
 import proyectos from './proyectos-reducer';
 import campos from './campos-reducer';
 import jiras from './jiras-reducer';
+import codigo from './codigo-reducer';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     clientes,
     proyectos,
     campos,
-    jiras
+    jiras,
+    codigo
 });
 
 export default rootReducer;

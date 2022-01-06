@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faProjectDiagram , faTasks , faTrash } from '@fortawesome/free-solid-svg-icons';
+
+
 import { ALL_PROYECTOS, DELETE_PROYECTO, NEW_PROYECTO , UPDATE_PROYECTO, NO_UPDATE_PROYECTO , SELECT_PROYECTO } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
@@ -99,6 +103,13 @@ const Jira_proyectos = (props) => {
     }
   };
 
+  const onDelete = (proyecto) => {
+
+    window.confirm('¿Quiere eliminar el proyecto ' + proyecto.nombre + '?') &&
+    removeProyecto(proyecto.id)
+
+}
+
   const removeProyecto = async (id) => {
 
     try {
@@ -189,34 +200,35 @@ const Jira_proyectos = (props) => {
 
   return (
     <div className="container container-campos">
-      <h1 className="mb-2 mt-3">Proyectos de Jira</h1>
+      <h1 className="mt-3">Proyectos de Jira</h1>
+
+      <p className="p-info-campos mb-5">En esta pantalla podemos configurar los proyectos de Jira, los cuales pueden ser elegidos cuando un cliente crear un ticket por WhatsApp. </p>
 
       <div className="ctn-campo basics_row ">
-        <div className="ctn-crear-campo basics_column">
+        <div className="ctn-crear-campo basics_column mb-2">
 
         
           <form className="form-campos basics_column">
-          {selectProyecto  ? <h2 className="mb-1">Actualizar proyecto</h2> : <h2 className="mb-1">Crear proyecto</h2>}
-            <p className="p-info-campos">En esta pantalla podemos configurar los proyectos de Jira, <br /> los cuales pueden ser elegidos cuando crear un ticket por WhatsApp. </p>
-
-            <div className="campos-col-50">
+          {selectProyecto  ? <h2 className="mb-2">Actualizar proyecto</h2> : <h2 className="mb-2">Crear proyecto</h2>}
+        
+            <div className="campos-col-50 mb-1">
               <input className="input-campos" type="text" name="nombre" placeholder="Nombre del proyecto" value={newProyecto?.nombre || selectProyecto?.nombre || ''} onChange={handleChange} />
             </div>
             <span></span>
-            <div className="campos-col-50">
+            <div className="campos-col-50 mb-3">
               <input className="input-campos" type="text" name="tipo" placeholder="Tipo de proyecto" value={newProyecto?.tipo || selectProyecto?.tipo || ''} onChange={handleChange} />
             </div>
 
             {selectProyecto ?
               
-                <div  className="basics_row_space row_to_column mt-3">
+                <div  className="basics_row_space row_to_column">
                 <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateProyecto(e)}>Actualizar</button>
                 <button className="send-button btn-campos-guardar" type="submit" onClick={e => NO_updateProyecto(e)}>Cancelar</button>
                 </div>
               :
               <>
                 {/* <div className="info">{msgError}</div> */}
-                <button className="send-button btn-campos-guardar mt-3" type="submit" onClick={e => addProyecto(e)}>Guardar</button>
+                <button className="send-button btn-campos-guardar" type="submit" onClick={e => addProyecto(e)}>Guardar</button>
               
               </>
             }
@@ -230,7 +242,7 @@ const Jira_proyectos = (props) => {
           {currentTableData
             ?
 
-            <div className="">
+            <div className="list-clientes basics_column">
               <div className="input-buscador basics_row">
                 <input type="text" name="buscardor" value={inputValue} onChange={writefilm} placeholder="Buscar proyecto.." />
                 <i className="fa fa-remove fa-2x" onClick={loadProyectos}></i>
@@ -242,20 +254,20 @@ const Jira_proyectos = (props) => {
                     <li className="list-group-item" key={info.id}>
 
                       <div className="row" >
-                        <div className="col-75" onClick={() => verProyecto(info)}>
-                          <p className="cliente-nombre"> {info.nombre}</p>
-                          <br />
-                          <p className="cliente-nombre"  > {info.tipo}</p>
+                        <div className="col-40 basics_row_start" onClick={() => verProyecto(info)}>
+                          <p className="cliente-nombre"> <span></span>  <FontAwesomeIcon icon={faProjectDiagram}/> {info.nombre}</p>
                         </div>
-                        <div className="col-25" onClick={() => removeProyecto(info.id)}>
-                          <i className="far fa-trash-alt fa-2x"></i>
+                        <div className="col-50 basics_row_start" onClick={() => verProyecto(info)}>
+                          <p className="cliente-nombre"><span></span> <FontAwesomeIcon icon={faTasks}/> {info.tipo}</p>
+                        </div>
+                        <div className="col-10 basics_row" onClick={() => onDelete(info)}>
+                          <FontAwesomeIcon  icon={faTrash} size="2x"/>
                         </div>
                       </div>
                     </li>
                   );
                 })}
               </ul>
-
 
               <Pagination
                 className="pagination-bar mb-5"

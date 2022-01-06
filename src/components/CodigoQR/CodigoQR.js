@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import img_wp from "../../images/info_whatapp.PNG"
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { NEW_QR} from '../../redux/types';
 
 const Jira_QR = (props) => {
 
 
-  const [qr, setQR] = useState('');
+  const [qr, setQR] = useState();
+
+  useEffect(() => {
+
+    setQR(props.codigo.qr);
+
+  }, [props.codigo.qr]);
 
 
   const getQR = async () => {
@@ -25,12 +32,9 @@ const Jira_QR = (props) => {
       debugger
       let res = await axios.post(`https://bot-jira-api.herokuapp.com/manejador/createBot`, manejador, config);
 
-      console.log('res'.res);
-
-//       var bytes = Encoding.UTF8.GetBytes(svgString);
-// var svg = Encoding.UTF8.GetString(bytes);
-
       setQR(res.data);
+
+      props.dispatch({ type: NEW_QR, payload: res.data });
 
     } catch (error) {
       console.log(error);
@@ -50,8 +54,13 @@ const Jira_QR = (props) => {
           </p>
           {qr ? 
           <img className='img-qr-code mt-1' src={qr} /> :
+          <>
           <div className='qr-code'>
-          </div> }
+           <p className="p-info-manejador"> *Puede tardar unos segundos en aparecer el código QR</p>
+          </div>
+          </> }
+
+          
         </div>
       </div>
       <div className="row row-qr">
@@ -71,5 +80,6 @@ const Jira_QR = (props) => {
 
 export default connect((state) => ({
   credentials: state.credentials,
-  jiras: state.jiras
+  jiras: state.jiras,
+  codigo: state.codigo
 }))(Jira_QR);

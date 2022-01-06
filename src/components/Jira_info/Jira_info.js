@@ -7,6 +7,7 @@ const Jira_info = (props) => {
 
   
   const [jira, setJira] = useState('');
+  const [msgError, setmsgError] = useState();
 
  
   useEffect(() => {
@@ -17,16 +18,17 @@ const Jira_info = (props) => {
 
   useEffect(() => {
 
-    setJira(props.jiras.jira);
+    setTimeout(() => {
+        setmsgError('')
+    }, 3000);
 
-  }, [props.jiras.jira]);
-
+}, [msgError]);
 
   useEffect(() => {
 
-    console.log('jira ->', jira)
+    setJira(props.jiras.jira);
 
-  },);
+  }, [props.jiras.jira]);
 
 
   const addJira = async (e) => {
@@ -45,9 +47,6 @@ const Jira_info = (props) => {
         "userId" : props.credentials.user.id
       }
 
-
-      debugger
-
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
       let config = {
@@ -58,8 +57,11 @@ const Jira_info = (props) => {
 
       props.dispatch({ type: NEW_JIRA, payload: new_jira });
 
+      // setmsgError(`Datos guardados`);
+
     } catch (error) {
       console.log(error)
+      // setmsgError(`Error al guardar los datos`);
     }
   }
 
@@ -93,8 +95,6 @@ const Jira_info = (props) => {
 
   const updateJira = async (e) => {
 
-   
-
     e.preventDefault();
     try {
 
@@ -117,12 +117,13 @@ const Jira_info = (props) => {
       debugger
       let res = await clienteAxios.put(`/jira/${props.jiras.jira.id}`, updatedJira, config);
  
-  
       props.dispatch({ type: UPDATE_JIRA, payload: updatedJira });
+
+      // setmsgError(`Datos actualizados`);
   
     } catch (error) {
       console.log(error);
-
+      // setmsgError(`Error al actualizar los datos`);
     }
 
   }
@@ -131,10 +132,13 @@ const Jira_info = (props) => {
   return (
     <div  className="container-component">
       <h1>Datos de conexión a Jira</h1>
+
+      <p className="p-info-manejador"> Para poder vincular su instacia de Jira con un número de teléfono es necesario completar los siguiente datos conexión. </p>
+
       <form className="form-datos-jira">
         <div  className="row">
           <div  className="col-40">
-            <label> <i class="fab fa-jira"></i>Nombre</label>
+            <label> <i class="far fa-sticky-note"></i> Nombre</label>
           </div>
           <div  className="col-60">
             <input type="text" id="nombre" name="nombre" value={jira?.nombre || ''} onChange={handleChange} placeholder="Nombre de la instancia Jira.." />
@@ -189,16 +193,16 @@ const Jira_info = (props) => {
         <div  className="mt-3 basics_row">
         
         {jira ?
-              <>
-                {/* <div className="info">{msgError}</div> */}
+               <div className="basics_column">
+                <div className="info-update-jira">{msgError}</div>
                 <button  className="send-button btn-jira" type="submit" onClick={e => updateJira(e)}>Actualizar</button>
-                </>
+                </div>
               :
-              <>
-                {/* <div className="info">{msgError}</div> */}
+              <div className="basics_column">
+                <div className="info-update-jira">{msgError}</div>
                 <button  className="send-button btn-jira" type="submit" onClick={e => addJira(e)}>Guardar</button>
               
-              </>
+              </div>
             }
         </div>
       </form>

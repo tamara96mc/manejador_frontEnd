@@ -41,6 +41,13 @@ $colBlanco2 : rgb(255, 255, 255);
     align-items: center;
 }
 
+.basics_row_start {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
 .container-component {
   width: 80%;
   height: 70%;
@@ -343,7 +350,7 @@ input , textarea , .input-campos{
         text-align: start;
     }
 
-    .campos-col-40, .campos-col-50 , .campos-col-10, .col-60 ,.col-50 {
+    .campos-col-40, .campos-col-50 , .campos-col-10, .col-60 ,.col-50 ,.col-40 {
       float: left;
       width: 100%;
       margin-top: 6px;
