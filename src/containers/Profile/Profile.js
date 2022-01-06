@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faIdCardAlt  } from '@fortawesome/free-solid-svg-icons';
 
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
@@ -12,6 +14,7 @@ const Profile = (props) => {
 
 
     let navigate = useNavigate();
+    const [msgError, setmsgError] = useState();
 
     useEffect(() => {
 
@@ -19,15 +22,25 @@ const Profile = (props) => {
 
     }, [props.credentials]);
 
+    useEffect(() => {
+
+        setTimeout(() => {
+            setmsgError('')
+        }, 3000);
+
+    }, [msgError]);
+
 
     const submit = async () => {
 
         try {
             let res = await clienteAxios.put(`/api/${props.credentials.user.id}`, values);
             props.dispatch({ type: UPDATE_USER, payload: values });
+            setmsgError(`Usuario actualizado`);
 
         } catch (error) {
             console.log(error)
+            setmsgError(`Error al actualizar el usuario`);
         }
     };
     const { handleChange, handleSubmit, values, setValues, errors } = useForm(submit, validateSignUp);
@@ -47,7 +60,7 @@ const Profile = (props) => {
         <div className="container">
             <form className='form-user'>
                 <h1 className='mb-1' >Datos usuario</h1>
-                <i className="fas fa-id-card-alt fa-6x"></i>
+                <FontAwesomeIcon  icon={faIdCardAlt} size="6x"/>
                 <div className="row">
                     <div className="col-40">
                         <label> <i class="fa fa-user"></i>Nombre</label>
@@ -88,15 +101,16 @@ const Profile = (props) => {
                             name="contraseya"
                             type="password"
                             placeholder="contraseña"
-                            value={values.contraseya || '********'}
+                            value={values.contraseya || ''}
                             onChange={handleChange}
                         />
                         {errors.contraseya && <p className="error">{errors.contraseya}</p>}
                     </div>
                 </div>
 
-
-                <div className="basics_row_space mt-5">
+           
+                    <div className="info-update-user">{msgError}</div>
+                <div className="basics_row_space row_to_column mt-2">
                     <button className="send-button" onClick={handleSubmit}>Actualizar</button>
                     <button className="send-button" onClick={logOut}>Cerrar sesión</button>
                 </div>

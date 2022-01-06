@@ -1,5 +1,8 @@
 import React, { useState,  } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+
 import useForm from "../../functions/hooks/useFormLogin.js";
 import { validateLogin } from "../../functions/hooks/validateInput";
 import { LOGIN } from '../../redux/types';
@@ -36,7 +39,7 @@ const Login = (props) => {
         <div className="container">
             <form className='form-user' >
                 <h1 className='mb-1'>LogIn</h1>
-                <i class="fas fa-sign-in-alt fa-6x"></i>
+                <FontAwesomeIcon  icon={faSignInAlt} size="6x"/>
                 <div className="row">
                     <div className="col-40">
                    <label ><i class="fa fa-user"></i> Correo</label>

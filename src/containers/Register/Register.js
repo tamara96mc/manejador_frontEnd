@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import clienteAxios from '../../config/axios';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 import useForm from "../../functions/hooks/useFromRegister";
 import { validateSignUp } from "../../functions/hooks/validateInput";
@@ -35,7 +37,7 @@ const Register = () => {
             <form className='form-user' >
             
                 <h1 className='mb-1'> Nuevo usuario</h1>
-                <i class="fas fa-clipboard-list fa-6x"></i>
+                <FontAwesomeIcon  icon={faClipboardList} size="6x"/>
                 <div className="row">
                     <div className="col-40">
                         <label> <i class="fa fa-user"></i>Nombre</label>

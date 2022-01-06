@@ -42,14 +42,10 @@
     text-decoration: none;
     color: $colBlanco2;
 }
-   
-.socials a i{
-    font-size: 1.5rem;
-    width: 0.3px;
-    transition: color .4s ease;
-}
-.socials a:hover i{
+
+.icon-footer:hover{
     color: $colAzul;
+    transition: color .4s ease;
 }
 
 

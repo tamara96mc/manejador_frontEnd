@@ -25,3 +25,5 @@ export const SELECT_CAMPO = 'select_campo';
 export const NEW_JIRA = 'new_jira';
 export const UPDATE_JIRA ='update_jira';
 
+export const NEW_QR = 'new_qr';
+

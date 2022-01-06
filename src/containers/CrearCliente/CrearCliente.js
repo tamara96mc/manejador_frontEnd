@@ -52,7 +52,7 @@ const CrearCliente = (props) => {
             <label> <i class="fa fa-user"></i>Nombre</label>
           </div>
           <div className="col-75">
-            <input type="text" name="nombre" placeholder="Nombre del cliente..." onChange={handleChange} />
+            <input type="text" name="nombre" placeholder="Nombre del cliente..."  onChange={handleChange} />
           </div>
         </div>
         <div className="row">
@@ -60,7 +60,7 @@ const CrearCliente = (props) => {
             <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
           </div>
           <div className="col-75">
-            <input type="text" name="telefono" placeholder="Teléfono del cliente..." onChange={handleChange} />
+            <input type="text" name="telefono" placeholder="Teléfono del cliente..." minLength="1" maxlength="9" onChange={handleChange} />
           </div>
         </div>
         <div className="basics_row mt-5">
