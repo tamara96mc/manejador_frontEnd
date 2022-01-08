@@ -133,12 +133,12 @@ const Jira_info = (props) => {
     <div  className="container-component">
       <h1>Datos de conexión a Jira</h1>
 
-      <p className="p-info-manejador"> Para poder vincular su instacia de Jira con un número de teléfono es necesario completar los siguiente datos conexión. </p>
+      <p className="p-info-manejador"> Para poder vincular su instacia de Jira con un número de teléfono es necesario completar los siguientes datos conexión. </p>
 
       <form className="form-datos-jira">
         <div  className="row">
           <div  className="col-40">
-            <label> <i class="far fa-sticky-note"></i> Nombre</label>
+            <label> <i class="far fa-sticky-note"></i>Nombre</label>
           </div>
           <div  className="col-60">
             <input type="text" id="nombre" name="nombre" value={jira?.nombre || ''} onChange={handleChange} placeholder="Nombre de la instancia Jira.." />
@@ -192,7 +192,7 @@ const Jira_info = (props) => {
         </div>
         <div  className="mt-3 basics_row">
         
-        {jira ?
+        {props.jiras.jira?.nombre ?
                <div className="basics_column">
                 <div className="info-update-jira">{msgError}</div>
                 <button  className="send-button btn-jira" type="submit" onClick={e => updateJira(e)}>Actualizar</button>

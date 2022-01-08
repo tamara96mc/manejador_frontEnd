@@ -27,6 +27,7 @@ const CrearCliente = (props) => {
           headers: { Authorization: `Bearer ${token}` }
       };
 
+      debugger
       let res = await clienteAxios.post(`/cliente`, cliente, config);
       
       props.dispatch({ type: NEW_CLIENTE, payload: cliente });

@@ -18,6 +18,7 @@ const Profile = (props) => {
 
     useEffect(() => {
 
+        debugger
         setValues(props.credentials.user);
 
     }, [props.credentials]);

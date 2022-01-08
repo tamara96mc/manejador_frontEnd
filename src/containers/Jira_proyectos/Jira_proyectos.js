@@ -65,7 +65,8 @@ const Jira_proyectos = (props) => {
 
       let res = await clienteAxios.post(`/proyecto`, proyecto, config);
 
-      props.dispatch({ type: NEW_PROYECTO, payload: proyecto });
+      debugger
+      props.dispatch({ type: NEW_PROYECTO, payload: res.data });
 
       setNewProyecto('');
 
@@ -239,7 +240,7 @@ const Jira_proyectos = (props) => {
         <div className="ctn-ver-campo basics_column">
 
           <h2 className="mb-1" >Lista de proyectos</h2>
-          {currentTableData
+          {currentTableData  && props.proyectos.proyectos.length != 0
             ?
 
             <div className="list-clientes basics_column">
@@ -279,7 +280,7 @@ const Jira_proyectos = (props) => {
             </div>
             :
             <div className="img-load">
-              <p className="no-pedidos">Aún no hay proyectos</p>
+              <p className="p-no-data">Aún no hay proyectos creados.</p>
             </div>
           }
 

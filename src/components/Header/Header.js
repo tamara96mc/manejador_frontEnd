@@ -30,16 +30,18 @@ const Header = (props) => {
                     {props.credentials?.user.nombre &&    <img src={Logo} className="img-logo" onClick={() => goToURL('/')} />}
                     </li>
                     <li>
-                      {props.credentials?.user.nombre &&  <Button destino="Clientes" url="/clientes" />}
+                      {props.credentials?.user.nombre && props.jiras.jira?.telefono && <Button destino="Clientes" url="/clientes" />}
                     </li>
 
                     <li>
-                     {props.credentials?.user.nombre &&   <Button destino="Proyectos" url="/proyectos" />}
+                     {props.credentials?.user.nombre &&  props.jiras.jira?.telefono && <Button destino="Proyectos" url="/proyectos" />}
                     </li>
                     <li>
-                    {props.credentials?.user.nombre && <Button destino="Campos" url="/campos" />}
+                    {props.credentials?.user.nombre && props.jiras.jira?.telefono && <Button destino="Campos" url="/campos" />}
                     </li>
-
+                    <li>
+                    {props.credentials?.user.nombre && !props.jiras.jira?.telefono &&  <p className='p-info-header'> <b>INFORMACIÓN :</b> El primer paso es configurar la conexión con Jira, después tendrá acceso a las secciones de clientes, campos, proyectos y configuración del manejador WhatsApp.</p>}
+                    </li>
                     <li>
                        {!props.credentials?.user.nombre &&  <Button destino="LogIn" url="/login" />}
                     </li>
@@ -59,5 +61,6 @@ const Header = (props) => {
     )
 };
 export default connect((state) => ({
-    credentials: state.credentials
+    credentials: state.credentials,
+    jiras: state.jiras
 }))(Header);

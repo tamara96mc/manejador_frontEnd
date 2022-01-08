@@ -64,7 +64,8 @@ const Jira_campos = (props) => {
 
       let res = await clienteAxios.post(`/campo`, campo, config);
 
-      props.dispatch({ type: NEW_CAMPO, payload: campo });
+      debugger
+      props.dispatch({ type: NEW_CAMPO, payload: res.data });
 
       setNewCampo('');
 
@@ -210,7 +211,7 @@ const Jira_campos = (props) => {
           {selectCampo  ? <h2 className="mb-2">Actualizar campo</h2> : <h2 className="mb-2">Crear campo</h2>}
             
             <div className="campos-col-50 mb-1">
-              <input className="input-campos" type="text"  name="custom_field" placeholder="ID del campo" value={newCampo?.custom_field || selectCampo?.custom_field || ''} onChange={handleChange} />
+              <input className="input-campos" type="text"  name="custom_field" placeholder="ID del campo" maxLength="5" value={newCampo?.custom_field || selectCampo?.custom_field || ''} onChange={handleChange} />
             </div>
             <span></span>
             <div className="campos-col-50 mb-3">
@@ -234,7 +235,7 @@ const Jira_campos = (props) => {
         <div className="ctn-ver-campo basics_column">
 
           <h2 className="mb-1" >Lista de campos</h2>
-          {currentTableData
+          {currentTableData  && props.campos.campos.length != 0
             ?
             <div className= "list-clientes basics_column mb-3">
               <div className="input-buscador basics_row">
@@ -272,7 +273,7 @@ const Jira_campos = (props) => {
             </div>
             :
             <div className="img-load">
-              <p className="no-pedidos">Aún no hay campos</p>
+              <p className="p-no-data">Aún no hay campos creados.</p>
             </div>
           }
 
