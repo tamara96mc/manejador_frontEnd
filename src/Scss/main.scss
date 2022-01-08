@@ -306,6 +306,19 @@ input , textarea , .input-campos{
 
 }
 
+.p-no-data{
+
+  border: 0.05em solid $colBlanco2;
+  border-style: dashed;
+  cursor: pointer;
+  color: $colBlanco2;
+  padding: 0.50em;
+  text-align: justify;
+  font-size: medium;
+  margin-bottom: 5em;
+
+}
+
 
 
 @media screen and (max-width: 1000px) {

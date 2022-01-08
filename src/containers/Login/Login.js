@@ -17,10 +17,12 @@ const Login = (props) => {
     const submit = async () => {
 
         try {
+            debugger
             let res = await clienteAxios.post("/api/login", values);
             setmsgError(`Usuario correcto`);
+            props.dispatch({type:LOGIN, payload:res.data});
+        
             setTimeout(() => {
-               props.dispatch({type:LOGIN, payload:res.data});
                 history("/");   
             }, 2000);
 
