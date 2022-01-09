@@ -2,9 +2,7 @@
 
 Esta app es un manejador para poder crear una configuración, la cual se utiliza para generar un chatbot que mediante WhatsApp se pueden crear tickets en Jira.
 
-[TOCM]
-
-[TOC]
+![icon_logo](https://user-images.githubusercontent.com/60045207/148699722-7f62434b-efe1-4dce-8bb3-c377d63e47c4.jpg)
 
 ## Tecnologias utilizadas
 - React js
