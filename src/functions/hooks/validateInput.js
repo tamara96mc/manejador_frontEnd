@@ -7,7 +7,7 @@ export function validateLogin(values) {
     }
     if (!values.contraseya) {
       errors.contraseya = "Complete este campo";
-    } else if (values.contraseya.length < 6) {
+    } else if (values.contraseya.length < 8) {
       errors.contraseya = "La contreseña debe de tener al menos 6 caracteres";
     }
     return errors;
@@ -28,7 +28,14 @@ export function validateLogin(values) {
       errors.contraseya = "Complete este campo";
     } else if (values.contraseya.length < 8) {
       errors.contraseya = "La contreseña debe de tener al menos 8 caracteres";
+    }else if (!/[A-Z]/.test(values.contraseya)) {
+      errors.contraseya = "La contreseña debe de tener al menos una mayúscula";
+    }else if (!/[a-z]/.test(values.contraseya)) {
+      errors.contraseya = "La contreseña debe de tener al menos una minúscula";
+    }else if (!/[0-9]/.test(values.contraseya)) {
+      errors.contraseya = "La contreseña debe de tener al menos un número";
     }
 
     return errors;
   }
+

@@ -175,8 +175,7 @@ h3{
 }
   
 .inputError {
-    color: $colBlanco1;
-    width: 18em;
+    color: $colRosa3
 }
   
 
@@ -310,7 +309,6 @@ input , textarea , .input-campos{
 
   border: 0.05em solid $colBlanco2;
   border-style: dashed;
-  cursor: pointer;
   color: $colBlanco2;
   padding: 0.50em;
   text-align: justify;
