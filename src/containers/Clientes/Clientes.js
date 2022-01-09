@@ -52,7 +52,7 @@ const Clientes = (props) => {
             let config = {
                 headers: { Authorization: `Bearer ${token}` }
             };
-            debugger
+
             let res = await clienteAxios.get(`/cliente/jiraId/${props.jiras.jira.id}`, config);
             props.dispatch({ type: ALL_CLIENTES, payload: res.data });
             setAllClientes(res.data);

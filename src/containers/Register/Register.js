@@ -44,6 +44,7 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
+                            className={`${errors.nombre && "inputError"}`}
                             name="nombre"
                             type="text"
                             placeholder="Nombre completo"
@@ -59,6 +60,7 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
+                          className={`${errors.correo && "inputError"}`}
                             name="correo"
                             type="email"
                             placeholder="correo"
@@ -75,6 +77,7 @@ const Register = () => {
                     </div>
                     <div className="col-60">
                         <input
+                          className={`${errors.contraseya && "inputError"}`}
                             name="contraseya"
                             type="password"
                             placeholder="contraseña"

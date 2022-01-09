@@ -59,6 +59,34 @@ hr{
 
 }
 
+.lista-campos{
+
+  width: 40%;
+
+}
+
+
+.no-data-campos{
+
+  border: 0.05em solid $colBlanco2;
+  border-style: dashed;
+  color: $colBlanco2;
+  padding: 0.50em;
+  text-align: justify;
+  font-size: medium;
+  margin-bottom: 5em;
+  height: 10em;
+
+}
+
+.print {
+  background-color: red;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;          
+}
+
 
 @media (max-width: 923px){
 

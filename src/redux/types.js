@@ -27,3 +27,10 @@ export const UPDATE_JIRA ='update_jira';
 
 export const NEW_QR = 'new_qr';
 
+export const NEW_DATO = 'new_dato';
+export const ALL_DATOS = 'all_datos';
+export const DELETE_DATO = 'delete_dato';
+export const UPDATE_DATO ='update_dato';
+export const NO_UPDATE_DATO ='no_update_dato';
+export const SELECT_DATO = 'select_dato';
+
