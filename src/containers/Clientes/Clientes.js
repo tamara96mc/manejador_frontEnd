@@ -14,10 +14,10 @@ const Clientes = (props) => {
 
     let PageSize = 5;
 
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0); // hook para guardar el estado del paginador
 
-    const [inputValue, setInputValue] = useState();
-    const [allClientes, setAllClientes] = useState([]);
+    const [inputValue, setInputValue] = useState(); // hook para el buscador
+    const [allClientes, setAllClientes] = useState([]); //hook para guardar los clientes
 
     const history = useNavigate();
 
@@ -25,18 +25,21 @@ const Clientes = (props) => {
         history(url);
     }
 
+    // Para ver los detalles del cliente seleccionado
     const verCliente = (select_cliente) => {
 
         props.dispatch({ type: SELECT_CLIENTE, payload: select_cliente });
         history("/detallesCliente");
     }
 
+    // Busca los clientes del Jira configurado
     useEffect(() => {
 
         getClientes();
 
     }, []);
 
+    // Si hay clientes en REDUX los seteo en su hook
     useEffect(() => {
 
         setAllClientes(props.clientes.clientes);
@@ -44,6 +47,7 @@ const Clientes = (props) => {
     }, [props.clientes.clientes]);
 
 
+    // Buscar clientes por el Jira ID
     const getClientes = async () => {
 
         try {
@@ -63,7 +67,7 @@ const Clientes = (props) => {
         }
     };
 
-
+    //Paso previo a borrar un cliente
     const onDelete = (cliente) => {
 
         window.confirm('¿Quiere eliminar el cliente ' + cliente.nombre + '?') &&
@@ -71,7 +75,7 @@ const Clientes = (props) => {
 
     }
 
-
+// Borrar un cliente por su telefono
     const removeCliente = async (telefono) => {
 
         try {
@@ -90,6 +94,7 @@ const Clientes = (props) => {
         }
     };
 
+    //Cuando se pulsa la X buscador se vuelven a cargar todos los clientes
     const loadClientes = () => {
 
         setAllClientes(props.clientes.clientes);
@@ -97,6 +102,7 @@ const Clientes = (props) => {
 
     }
 
+    // Para filtrar los clientes por el valor buscado
     const writefilm = (e) => {
 
         setInputValue(e.target.value);
@@ -113,6 +119,7 @@ const Clientes = (props) => {
         const lastPageIndex = firstPageIndex + PageSize;
         return allClientes.slice(firstPageIndex, lastPageIndex);
     }, [currentPage, allClientes]);
+
 
     return (
         <div className="container">
@@ -161,13 +168,12 @@ const Clientes = (props) => {
                     <p className="p-no-data">Aún no hay clientes creados.</p>
                 </div>
             }
-             <button className="send-button btn-cliente mt-2" onClick={() => gotoURL("/crearCliente")}>Crear cliente</button>
+            <button className="send-button btn-cliente mt-2" onClick={() => gotoURL("/crearCliente")}>Crear cliente</button>
         </div>
     )
 };
 
 export default connect((state) => ({
-    // jiras: state.jiras,
     credentials: state.credentials,
     clientes: state.clientes,
     jiras: state.jiras

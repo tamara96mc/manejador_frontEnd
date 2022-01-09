@@ -9,6 +9,8 @@ const Jira_QR = (props) => {
 
   const [qr, setQR] = useState();
 
+  //actualizo el hook con el QR que está en REDUX
+
   useEffect(() => {
 
     setQR(props.codigo.qr);
@@ -16,9 +18,13 @@ const Jira_QR = (props) => {
   }, [props.codigo.qr]);
 
 
+  //Genero el código QR con el número de telefono que tengo en REDUX
   const getQR = async () => {
 
     try {
+
+      //Limpiamos el código anterior
+      setQR('');
  
       let token = props.credentials.token;
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
@@ -29,7 +35,7 @@ const Jira_QR = (props) => {
       const manejador = {
         "telefono": props.jiras.jira.telefono,
       }
-      debugger
+      
       let res = await axios.post(`https://bot-jira-api.herokuapp.com/manejador/createBot`, manejador, config);
 
       setQR(res.data);
@@ -52,6 +58,7 @@ const Jira_QR = (props) => {
         <div className="col-100">
           <p className="p-info-manejador"> <b>Si aún no ha vinculado ningún dispositivo: </b> <br/> <br/> Para poder vincular el número de teléfono al manejador de JIRA tienes que pulsar el botón de <b>* Generar QR *</b> y después escanear el código con tu aplicacion de WhatsApp en: <br /> <i>Dispositivos vinculados {'>'} Vincular un dispositivo</i> 
           </p>
+          {/* Carga condicionar si ha QR */}
           {qr ? 
           <img className='img-qr-code mt-1' src={qr} /> :
           <>
@@ -59,7 +66,6 @@ const Jira_QR = (props) => {
            <p className="p-info-manejador"> *Puede tardar unos segundos en aparecer el código QR</p>
           </div>
           </> }
-
           
         </div>
       </div>

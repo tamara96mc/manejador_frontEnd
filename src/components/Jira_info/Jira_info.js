@@ -1,35 +1,40 @@
 import React, { useState, useEffect } from "react";
-import { NEW_JIRA , UPDATE_JIRA } from '../../redux/types';
+import { NEW_JIRA, UPDATE_JIRA } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 
 const Jira_info = (props) => {
 
-  
+
   const [jira, setJira] = useState('');
   const [msgError, setmsgError] = useState();
 
- 
+
+  // Buscamos si hay algún Jira configura para el usuuario logeado
   useEffect(() => {
 
     getJiraByUser();
 
   }, []);
 
+  //Pasado unos segundo quitamos el msg
   useEffect(() => {
 
     setTimeout(() => {
-        setmsgError('')
+      setmsgError('')
     }, 3000);
 
-}, [msgError]);
+  }, [msgError]);
 
+//Si en REDUX tenemos datos de Jira lo añadimos al Hook
   useEffect(() => {
 
     setJira(props.jiras.jira);
 
   }, [props.jiras.jira]);
 
+  
+  //Creamos una nueva configuración de Jira
 
   const addJira = async (e) => {
 
@@ -44,7 +49,7 @@ const Jira_info = (props) => {
         "contraseya": jira.contraseya,
         "telefono": jira.telefono,
         "tipo_jira": jira.tipo_jira,
-        "userId" : props.credentials.user.id
+        "userId": props.credentials.user.id
       }
 
       let token = props.credentials.token;
@@ -67,10 +72,11 @@ const Jira_info = (props) => {
 
   const handleChange = (e) => {
 
-      setJira({ ...jira, [e.target.name]: e.target.value });
-  
+    setJira({ ...jira, [e.target.name]: e.target.value });
+
   }
 
+  // Buscamos si hay algún Jira configura para el usuuario logeado
 
   const getJiraByUser = async () => {
 
@@ -92,7 +98,7 @@ const Jira_info = (props) => {
 
   };
 
-
+// Para actualizar los datos de Jira 
   const updateJira = async (e) => {
 
     e.preventDefault();
@@ -111,16 +117,15 @@ const Jira_info = (props) => {
         "contraseya": jira.contraseya,
         "telefono": jira.telefono,
         "tipo_jira": jira.tipo_jira,
-        "userId" : props.credentials.user.id
+        "userId": props.credentials.user.id
       }
 
-      debugger
       let res = await clienteAxios.put(`/jira/${props.jiras.jira.id}`, updatedJira, config);
- 
+
       props.dispatch({ type: UPDATE_JIRA, payload: updatedJira });
 
       // setmsgError(`Datos actualizados`);
-  
+
     } catch (error) {
       console.log(error);
       // setmsgError(`Error al actualizar los datos`);
@@ -130,80 +135,80 @@ const Jira_info = (props) => {
 
 
   return (
-    <div  className="container-component">
+    <div className="container-component">
       <h1>Datos de conexión a Jira</h1>
 
       <p className="p-info-manejador"> Para poder vincular su instacia de Jira con un número de teléfono es necesario completar los siguientes datos conexión. </p>
 
       <form className="form-datos-jira">
-        <div  className="row">
-          <div  className="col-40">
+        <div className="row">
+          <div className="col-40">
             <label> <i class="far fa-sticky-note"></i>Nombre</label>
           </div>
-          <div  className="col-60">
+          <div className="col-60">
             <input type="text" id="nombre" name="nombre" value={jira?.nombre || ''} onChange={handleChange} placeholder="Nombre de la instancia Jira.." />
           </div>
         </div>
-        <div  className="row">
-          <div  className="col-40">
+        <div className="row">
+          <div className="col-40">
             <label> <i class="fa fa-server"></i>Tipo</label>
           </div>
-          <div  className="col-60">
-            <select  className="tipo_jira" name="tipo_jira" value={jira?.tipo_jira}  onChange={handleChange}>
+          <div className="col-60">
+            <select className="tipo_jira" name="tipo_jira" value={jira?.tipo_jira} onChange={handleChange}>
               <option value="Jira Cloud">Jira Cloud</option>
               <option value="Jira Server">Jira Server</option>
               <option value="Jira Data Center">Jira Data Center</option>
             </select>
           </div>
         </div>
-        <div  className="row">
-          <div  className="col-40">
+        <div className="row">
+          <div className="col-40">
             <label> <i class="fa fa-link"></i>URL Base</label>
           </div>
-          <div  className="col-60">
+          <div className="col-60">
             <input type="text" id="url" name="url_jira" value={jira?.url_jira || ''} onChange={handleChange} placeholder="https://example.atlassian.net/jira" />
           </div>
         </div>
-        <div  className="row">
-          <div  className="col-40">
+        <div className="row">
+          <div className="col-40">
             <label> <i class="fa fa-envelope"></i>Correo</label>
           </div>
-          <div  className="col-60">
+          <div className="col-60">
             <input type="text" id="usuario" name="usuario" value={jira?.usuario || ''} onChange={handleChange} placeholder="Usuario jira.." />
           </div>
         </div>
 
-        <div  className="row">
-          <div  className="col-40">
+        <div className="row">
+          <div className="col-40">
             <label> <i class="fa fa-key"></i>API TOKEN</label>
           </div>
-          <div  className="col-60">
-            <input type="text"name= "contraseya" value={jira?.contraseya || ''} onChange={handleChange} placeholder="Contraseña de usuario.." />
+          <div className="col-60">
+            <input type="text" name="contraseya" value={jira?.contraseya || ''} onChange={handleChange} placeholder="Contraseña de usuario.." />
           </div>
         </div>
 
-        <div  className="row">
-          <div  className="col-40">
-          <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
+        <div className="row">
+          <div className="col-40">
+            <label> <i class="fa fa-whatsapp"></i>Teléfono</label>
           </div>
-          <div  className="col-60">
-          <input  type="text" name="telefono" value={jira?.telefono || ''} onChange={handleChange} placeholder="645 234 567" />
+          <div className="col-60">
+            <input type="text" name="telefono" value={jira?.telefono || ''} onChange={handleChange} placeholder="645 234 567" />
           </div>
         </div>
-        <div  className="mt-3 basics_row">
-        
-        {props.jiras.jira?.nombre ?
-               <div className="basics_column">
-                <div className="info-update-jira">{msgError}</div>
-                <button  className="send-button btn-jira" type="submit" onClick={e => updateJira(e)}>Actualizar</button>
-                </div>
-              :
-              <div className="basics_column">
-                <div className="info-update-jira">{msgError}</div>
-                <button  className="send-button btn-jira" type="submit" onClick={e => addJira(e)}>Guardar</button>
-              
-              </div>
-            }
+        <div className="mt-3 basics_row">
+
+          {props.jiras.jira?.nombre ?
+            <div className="basics_column">
+              <div className="info-update-jira">{msgError}</div>
+              <button className="send-button btn-jira" type="submit" onClick={e => updateJira(e)}>Actualizar</button>
+            </div>
+            :
+            <div className="basics_column">
+              <div className="info-update-jira">{msgError}</div>
+              <button className="send-button btn-jira" type="submit" onClick={e => addJira(e)}>Guardar</button>
+
+            </div>
+          }
         </div>
       </form>
     </div>

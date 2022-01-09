@@ -1,7 +1,5 @@
 .list-clientes{
-
   width:50%;
-
 }
 
 .list-group {
@@ -38,8 +36,6 @@
 
 
 .btn-cliente{
-  // display: flex;
-  // margin: auto;
   width: 10em;
   font-size: large
 }
@@ -50,11 +46,11 @@
 
 .input-buscador{
 
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: $colBlanco1;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: $colBlanco1;
 }
 
 .input-buscador>input {

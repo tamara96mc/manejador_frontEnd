@@ -7,37 +7,41 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { UPDATE_CLIENTE, ALL_DATOS, NEW_DATO, DELETE_DATO, SELECT_DATO, UPDATE_DATO, NO_UPDATE_DATO } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import Pagination from '../../components/Pagination/Pagination';
-import data from './data.json';
+
 
 const DetallesCliente = (props) => {
 
   let PageSize = 3;
 
-  const [clienteData, setclienteData] = useState();
-  const [datos, setDatos] = useState();
-  const [newDato, setNewDato] = useState();
-  const [selectDato, setSelectDato] = useState();
-  const [allDatos, setallDatos] = useState([]);
+  const [clienteData, setclienteData] = useState(); //hook para el cliente seleccionado
+  const [datos, setDatos] = useState();  // hook para los campos del Jira
+  const [newDato, setNewDato] = useState(); // hook para el formulario de crear nuevo dato
+  const [selectDato, setSelectDato] = useState(); // hook para guardar los datos del DATO seleccionado en la lista <ul> 
+  const [allDatos, setallDatos] = useState([]); // hook para guardar todos los datos de cliente y listarlos 
   const [msgError, setmsgError] = useState("");
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0); // hook para el paginador
 
   const history = useNavigate();
 
   useEffect(() => {
 
     setCurrentPage(1);
+    //Buscar los campos del Jira configurado
     getCampos();
 
   }, []);
 
   useEffect(() => {
 
+    // Hook para guardar el cliente seleccionado si está en REDUX
     setclienteData(props.clientes.select_cliente);
-    getDatos();
+
+
   }, [props.clientes.select_cliente]);
 
   useEffect(() => {
 
+    // Buscar los datos de dicho cliente
     if (clienteData?.telefono)
       getDatos();
 
@@ -45,6 +49,7 @@ const DetallesCliente = (props) => {
 
   useEffect(() => {
 
+    // Hook para guardar los datos el cliente seleccionado si está en REDUX
     setallDatos(props.datos.datos);
 
   }, [props.datos.datos]);
@@ -52,10 +57,13 @@ const DetallesCliente = (props) => {
 
   useEffect(() => {
 
+    // Hook para guardar el dato seleccionado de la lista si está en REDUX
     setSelectDato(props.datos.select_dato);
 
   }, [props.datos.select_dato]);
 
+
+  //Buscar los campos del Jira configurado
   const getCampos = async () => {
 
     try {
@@ -66,7 +74,7 @@ const DetallesCliente = (props) => {
       };
       let res = await clienteAxios.get(`/campo/jiraId/${props.jiras.jira.id}`, config);
 
-     setDatos(res.data);
+      setDatos(res.data);
 
     } catch (error) {
       console.log(error);
@@ -74,8 +82,6 @@ const DetallesCliente = (props) => {
   };
 
   const handleChangeDatos = (e) => {
-
-    console.log("info ", [e.target.name], '---', e.target.id);
 
     if (selectDato) {
       setSelectDato({ ...selectDato, [e.target.name]: e.target.value });
@@ -85,6 +91,7 @@ const DetallesCliente = (props) => {
 
   }
 
+  //Crear nuevo dato
   const addDato = async (e) => {
 
     e.preventDefault();
@@ -104,13 +111,8 @@ const DetallesCliente = (props) => {
         headers: { Authorization: `Bearer ${token}` }
       };
 
-      debugger
-
       let res = await clienteAxios.post(`/dato`, new_dato, config);
-
-     
       var strcampo = e.options[e.selectedIndex].text;
-
 
       const new_dato_data = {
         id: res.data.id,
@@ -128,6 +130,7 @@ const DetallesCliente = (props) => {
     }
   }
 
+  //Buscar los datos creado del cliente selecciado
   const getDatos = async () => {
 
     try {
@@ -149,13 +152,14 @@ const DetallesCliente = (props) => {
   };
 
 
-
+  // Actualizo en REDUX el dato selecciando
   const verDato = (select_dato) => {
 
     props.dispatch({ type: SELECT_DATO, payload: select_dato });
 
   }
 
+  //Paso previo al borrar un cliente
   const onDelete = (dato) => {
 
     window.confirm('¿Quiere eliminar el valor ' + dato.nombre + '?') &&
@@ -163,6 +167,7 @@ const DetallesCliente = (props) => {
 
   }
 
+  // Borrar dato 
   const removeDato = async (id) => {
 
     try {
@@ -183,7 +188,7 @@ const DetallesCliente = (props) => {
     }
   };
 
-
+// Modificar dato
   const updateDato = async (e) => {
 
     e.preventDefault();
@@ -223,6 +228,7 @@ const DetallesCliente = (props) => {
 
   }
 
+  // Quito el dato selecciado pq no va a ser modificado
   const NO_updateDato = async (e) => {
 
     props.dispatch({ type: NO_UPDATE_DATO, payload: '' });
@@ -232,12 +238,12 @@ const DetallesCliente = (props) => {
   }
 
 
-
   const handleChange = (e) => {
     //Función encargada de bindear el hook con los inputs.
     setclienteData({ ...clienteData, [e.target.name]: e.target.value });
   }
 
+  // Modificar cliente
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -283,9 +289,11 @@ const DetallesCliente = (props) => {
 
   return (
     <div className="container container-campos">
-      <h1 className="mt-3">Datos cliente</h1>
-      <div className="ctn-cliente">
+      <h1 className="mt-3 mb-1">Datos cliente</h1>
+      <p className="p-info-manejador mb-2"> En esta pantalla podemos edtitar el cliente además de configurar los datos que se le añadirán al ticket cuando lo cree mediante WhatsApp. </p>
 
+{/*****  FORMULARIO PARA MODIFICAR CLIENTE ******/}
+      <div className="ctn-cliente">
         <div className="ctn-crear-cliente basics_column">
           <div className="row">
             <div className="col-40">
@@ -300,6 +308,7 @@ const DetallesCliente = (props) => {
             <button className="send-button btn-campos-guardar" type="submit" onClick={e => handleSubmit(e)}>Actualizar</button>
           </div>
 
+{/*****  FORMULARIO PARA MODIFICAR Y CREAR DATO ******/}
 
           {props.campos.campos.length != 0 ?
 
@@ -310,7 +319,6 @@ const DetallesCliente = (props) => {
                 <div className="campos-col-50 mb-1">
 
                   {selectDato ?
-
 
                     <label type="text" name="nombre" placeholder="Valor del campo" value={selectDato?.nombre || ''}>{selectDato?.nombre || ''}</label>
                     :
@@ -337,7 +345,6 @@ const DetallesCliente = (props) => {
 
                   </>
                 }
-
               </form>
             </div>
             :
@@ -349,8 +356,9 @@ const DetallesCliente = (props) => {
           }
 
         </div>
-        <div className="ctn-ver-campo basics_column">
 
+        {/*****  LISTADO DE LOS DATOS DEL CLIENTE  ******/}
+        <div className="ctn-ver-campo basics_column">
 
           <h2 className="mb-1" >Lista de datos</h2>
           {currentTableData && props.datos.datos.length != 0
