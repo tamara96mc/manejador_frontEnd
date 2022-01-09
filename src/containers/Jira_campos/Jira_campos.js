@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faKey ,faAlignLeft , faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faAlignLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { ALL_CAMPOS, DELETE_CAMPO, NEW_CAMPO , UPDATE_CAMPO, NO_UPDATE_CAMPO, SELECT_CAMPO } from '../../redux/types';
+import { ALL_CAMPOS, DELETE_CAMPO, NEW_CAMPO, UPDATE_CAMPO, NO_UPDATE_CAMPO, SELECT_CAMPO } from '../../redux/types';
 import clienteAxios from '../../config/axios';
 import { connect } from 'react-redux';
 import Pagination from '../../components/Pagination/Pagination';
@@ -13,32 +13,36 @@ const Jira_campos = (props) => {
 
   let PageSize = 5;
 
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0); // hook para el paginador
   const [msgError, setmsgError] = useState("");
-  const [inputValue, setInputValue] = useState();
-  const [newCampo, setNewCampo] = useState('');
-  const [selectCampo, setSelectCampo] = useState();
-  const [allCampos, setallCampos] = useState([]);
+  const [inputValue, setInputValue] = useState(); // hook para el buscador
+  const [newCampo, setNewCampo] = useState(''); // hook para crear nuevo campo
+  const [selectCampo, setSelectCampo] = useState(); // hook para guardar el campo seleccionado
+  const [allCampos, setallCampos] = useState([]); // hook para guardar todos los campos de Jira
 
 
+  // Guarda en REDUX el campo seleccionado de la lista
   const verCampo = (select_campo) => {
 
     props.dispatch({ type: SELECT_CAMPO, payload: select_campo });
 
   }
 
+  // Busca los campos del Jira configurado
   useEffect(() => {
 
     getCampos();
 
   }, []);
 
+  // Si el REDUX hay campos los guarda en el state
   useEffect(() => {
 
     setallCampos(props.campos.campos);
 
   }, [props.campos.campos]);
 
+  // Si el REDUX está el campo seleccionado lo guarda en el state
   useEffect(() => {
 
     setSelectCampo(props.campos.select_campo);
@@ -46,6 +50,7 @@ const Jira_campos = (props) => {
   }, [props.campos.select_campo]);
 
 
+  // Crear nuevo campo 
   const addCampo = async (e) => {
 
     e.preventDefault();
@@ -76,14 +81,15 @@ const Jira_campos = (props) => {
 
   const handleChange = (e) => {
 
-    if(selectCampo){
+    if (selectCampo) {
       setSelectCampo({ ...selectCampo, [e.target.name]: e.target.value });
-    }else{
+    } else {
       setNewCampo({ ...newCampo, [e.target.name]: e.target.value });
     }
-  
+
   }
 
+  // Buscar los campos del Jira 
   const getCampos = async () => {
 
     try {
@@ -103,14 +109,15 @@ const Jira_campos = (props) => {
     }
   };
 
-
+  // Paso previo al borrado de un campo
   const onDelete = (campo) => {
 
     window.confirm('¿Quiere eliminar el proyecto ' + campo.nombre + '?') &&
-    removeCampo(campo.id)
+      removeCampo(campo.id)
 
-}
+  }
 
+  // Borrado de un campo
   const removeCampo = async (id) => {
 
     try {
@@ -130,7 +137,7 @@ const Jira_campos = (props) => {
     }
   };
 
-
+  // Modificar un campo
   const updateCampo = async (e) => {
 
     e.preventDefault();
@@ -170,6 +177,7 @@ const Jira_campos = (props) => {
 
   }
 
+  // Quito el campo selecciado pq no va a ser modificado
   const NO_updateCampo = async (e) => {
 
     props.dispatch({ type: NO_UPDATE_CAMPO, payload: '' });
@@ -178,11 +186,13 @@ const Jira_campos = (props) => {
 
   }
 
+  // Cuando termina la busqueda se vuelven a cargar los campos de REDUX
   const loadCampos = () => {
     setallCampos(props.campos.campos);
     setInputValue('');
   }
 
+  // Filter para el buscador
   const writefilm = (e) => {
 
     setInputValue(e.target.value);
@@ -205,44 +215,46 @@ const Jira_campos = (props) => {
       <h1 className="mb-1 mt-3">Campos de Jira</h1>
       <p className="p-info-campos">En esta pantalla podemos configurar los campos personalidos de Jira, los cuales pueden ser utilizados en los clientes para añadir más información al ticket en su creación. </p>
 
+      {/*****  FORMULARIO PARA CREAR Y MODIFACAR LOS CAMPOS ******/}
       <div className="ctn-campo">
         <div className="ctn-crear-campo basics_column mb-4">
           <form className="form-campos basics_column">
-          {selectCampo  ? <h2 className="mb-2">Actualizar campo</h2> : <h2 className="mb-2">Crear campo</h2>}
-            
+            {selectCampo ? <h2 className="mb-2">Actualizar campo</h2> : <h2 className="mb-2">Crear campo</h2>}
+
             <div className="campos-col-50 mb-1">
-              <input className="input-campos" type="text"  name="custom_field" placeholder="ID del campo" maxLength="5" value={newCampo?.custom_field || selectCampo?.custom_field || ''} onChange={handleChange} />
+              <input className="input-campos" type="text" name="custom_field" placeholder="ID del campo" maxLength="5" value={newCampo?.custom_field || selectCampo?.custom_field || ''} onChange={handleChange} />
             </div>
             <span></span>
             <div className="campos-col-50 mb-3">
               <input className="input-campos" type="text" name="nombre" placeholder="Nombre del campo" value={newCampo?.nombre || selectCampo?.nombre || ''} onChange={handleChange} />
             </div>
             {selectCampo ?
-                  <div  className="basics_row_space row_to_column">
-                  <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateCampo(e)}>Actualizar</button>
-                  <button className="send-button btn-campos-guardar" type="submit" onClick={e => NO_updateCampo(e)}>Cancelar</button>
-                  </div>
+              <div className="basics_row_space row_to_column">
+                <button className="send-button btn-campos-guardar" type="submit" onClick={e => updateCampo(e)}>Actualizar</button>
+                <button className="send-button btn-campos-guardar" type="submit" onClick={e => NO_updateCampo(e)}>Cancelar</button>
+              </div>
               :
               <>
                 {/* <div className="info">{msgError}</div> */}
                 <button className="send-button btn-campos-guardar" type="submit" onClick={e => addCampo(e)}>Guardar</button>
-              
+
               </>
             }
           </form>
         </div>
 
+        {/*****  LISTADO DE LOS CAMPOS ******/}
         <div className="ctn-ver-campo basics_column">
 
           <h2 className="mb-1" >Lista de campos</h2>
-          {currentTableData  && props.campos.campos.length != 0
+          {currentTableData && props.campos.campos.length != 0
             ?
-            <div className= "list-clientes basics_column mb-3">
+            <div className="list-clientes basics_column mb-3">
               <div className="input-buscador basics_row">
                 <input type="text" name="buscardor" value={inputValue} onChange={writefilm} placeholder="Buscar campo.." />
                 <i className="fa fa-remove fa-2x" onClick={loadCampos}></i>
               </div>
-             <ul className="list-group">
+              <ul className="list-group">
 
                 {currentTableData.map(info => {
                   return (
@@ -250,13 +262,13 @@ const Jira_campos = (props) => {
 
                       <div className="row" >
                         <div className="col-40 basics_row_start" onClick={() => verCampo(info)}>
-                        <FontAwesomeIcon icon={faKey}/> <span></span><p className="cliente-nombre">{info.custom_field}</p>
+                          <FontAwesomeIcon icon={faKey} /> <span></span><p className="cliente-nombre">{info.custom_field}</p>
                         </div>
                         <div className="col-50 basics_row_start" onClick={() => verCampo(info)}>
-                        <FontAwesomeIcon icon={faAlignLeft}/> <span></span><p className="cliente-nombre">{info.nombre}</p>
+                          <FontAwesomeIcon icon={faAlignLeft} /> <span></span><p className="cliente-nombre">{info.nombre}</p>
                         </div>
                         <div className="col-10 basics_row" onClick={() => onDelete(info)}>
-                        <FontAwesomeIcon icon={faTrash} size="2x"/>
+                          <FontAwesomeIcon icon={faTrash} size="2x" />
                         </div>
                       </div>
                     </li>

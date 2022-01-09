@@ -82,7 +82,7 @@
 
   }
 
-            @media (max-width: 923px){
+@media (max-width: 923px){
  
 
    .navigation ul {
@@ -100,7 +100,7 @@
   }
 
   .navigation ul li {
-margin:auto;
+    margin:auto;
     opacity: 1;
   }
 
@@ -113,23 +113,23 @@ margin:auto;
     margin:auto;
     color: #f7f3f3;
     cursor: pointer;
-}
+  }
 
-.nav-button{
+  .nav-button{
 
     width: 100%;
     opacity: 1;
-}
+  }
 
-.img-logo , .img-user{
+  .img-logo , .img-user{
 
     margin: 2em;
 
-}
+  }
   
+}
 
-            }
-
+//Animación de los iconos del header
 @keyframes myAnim {
     0%,
     100% {

@@ -17,8 +17,7 @@ const Profile = (props) => {
     const [msgError, setmsgError] = useState();
 
     useEffect(() => {
-
-        debugger
+        
         setValues(props.credentials.user);
 
     }, [props.credentials]);
