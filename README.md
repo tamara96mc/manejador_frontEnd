@@ -2,7 +2,7 @@
 
 Esta app es un manejador para poder crear una configuración, la cual se utiliza para generar un chatbot que mediante WhatsApp se pueden crear tickets en Jira.
 
-![icon_logo](https://user-images.githubusercontent.com/60045207/148699722-7f62434b-efe1-4dce-8bb3-c377d63e47c4.jpg)
+<img src="https://user-images.githubusercontent.com/60045207/148699722-7f62434b-efe1-4dce-8bb3-c377d63e47c4.jpg" data-canonical-src="https://user-images.githubusercontent.com/60045207/148699722-7f62434b-efe1-4dce-8bb3-c377d63e47c4.jpg" width="200"  />
 
 ## Tecnologias utilizadas
 - React js
@@ -17,19 +17,20 @@ Esta app es un manejador para poder crear una configuración, la cual se utiliza
 ## Pantallas
 
 ## Registro 
-![0_register](https://user-images.githubusercontent.com/60045207/148699029-f2a78b65-fd82-4108-8458-a3f240fe8716.PNG)
+
+<img src="https://user-images.githubusercontent.com/60045207/148699029-f2a78b65-fd82-4108-8458-a3f240fe8716.PNG" data-canonical-src="https://user-images.githubusercontent.com/60045207/148699029-f2a78b65-fd82-4108-8458-a3f240fe8716.PNG" width="800"  />
 
 Pantalla para el registro de los usuarios con sistema de validación de campos.
 
 ## Login 
 
-![1_login](https://user-images.githubusercontent.com/60045207/148699038-9801fcb6-e771-49c8-919c-31796137a4f8.PNG)
+<img src="https://user-images.githubusercontent.com/60045207/148699038-9801fcb6-e771-49c8-919c-31796137a4f8.PNG"  width="800" />
 
 Pantalla para el incio de sesión de los usuarios con sistema de validación de campos.
 
 ## Perfil 
 
-![x_profile](https://user-images.githubusercontent.com/60045207/148699044-d808281a-493e-4876-b487-edda841e7d30.PNG)
+<img src="https://user-images.githubusercontent.com/60045207/148699044-d808281a-493e-4876-b487-edda841e7d30.PNG"  width="800" />
 
 Pantalla para ver y editar el perfil del usuario.
 
@@ -86,10 +87,11 @@ Los datos también se pueden editar si los seleccionamos.
 
 Tambíén acceder a ella desde un dispositivo movil.
 
-![PWA](https://user-images.githubusercontent.com/60045207/148699178-79491dd0-fb30-45a2-8b82-1b64a45bfc03.jpg)
-![Screenshot_20220109-203024](https://user-images.githubusercontent.com/60045207/148699182-a5f0ddac-f520-4fc6-bbee-2779fa0c49b7.jpg)
-![Screenshot_20220109-203156](https://user-images.githubusercontent.com/60045207/148699184-c5f137a2-0d4e-4ee8-9d57-f0764c06f365.jpg)
-![Screenshot_20220109-203224](https://user-images.githubusercontent.com/60045207/148699186-2ae3e6fa-a4aa-4f1c-b822-6d8c85c14236.jpg)
+<img src="https://user-images.githubusercontent.com/60045207/148699178-79491dd0-fb30-45a2-8b82-1b64a45bfc03.jpg"  width="300" />
+<img src="https://user-images.githubusercontent.com/60045207/148699182-a5f0ddac-f520-4fc6-bbee-2779fa0c49b7.jpg"  width="300" />
+<img src="https://user-images.githubusercontent.com/60045207/148699184-c5f137a2-0d4e-4ee8-9d57-f0764c06f365.jpg"  width="300" />
+<img src="https://user-images.githubusercontent.com/60045207/148699186-2ae3e6fa-a4aa-4f1c-b822-6d8c85c14236.jpg"  width="300" />
+
 
 ## Hosting
 
@@ -100,16 +102,18 @@ La PWA está disponible en https://desarrollo.d3s6w5jo3kmxpt.amplifyapp.com/
 Ejemplo de un chatbot para crear tickets mediante WhatsApp.
 
 Si tienes permisos como cliente:
-![Screenshot_20220109-212026](https://user-images.githubusercontent.com/60045207/148699427-89130a39-ed21-4901-be95-d965f45bb3dd.jpg)
-![Screenshot_20220109-212040](https://user-images.githubusercontent.com/60045207/148699441-f11cb8dc-0acd-4a6a-ab1e-6853526a202d.jpg)
-![Screenshot_20220109-212048](https://user-images.githubusercontent.com/60045207/148699444-4f117069-a9f7-4c3a-9457-65501383e409.jpg)
+<img src="https://user-images.githubusercontent.com/60045207/148699427-89130a39-ed21-4901-be95-d965f45bb3dd.jpg"  width="300" />
+<img src="https://user-images.githubusercontent.com/60045207/148699441-f11cb8dc-0acd-4a6a-ab1e-6853526a202d.jpg"  width="300" />
+<img src="https://user-images.githubusercontent.com/60045207/148699444-4f117069-a9f7-4c3a-9457-65501383e409.jpg"  width="300" />
+
 
 Si no tienes permisos:
-![Screenshot_20220109-212131](https://user-images.githubusercontent.com/60045207/148699447-b7d1bf59-0c71-456c-af01-672ab28fb06b.jpg)
+<img src="https://user-images.githubusercontent.com/60045207/148699447-b7d1bf59-0c71-456c-af01-672ab28fb06b.jpg"  width="300" />
 
 Y en Jira ser crearia el ticket:
 
 ![tickect](https://user-images.githubusercontent.com/60045207/148699552-6f307257-9ea9-41f7-b136-c5c81ffca8e4.PNG)
+
 
 ## Features
 
